@@ -12,7 +12,7 @@ public class Madrid extends AppCompatActivity {
         setContentView(R.layout.activity_madrid);
 
         TextView textView1 = (TextView) findViewById(R.id.Bord_freq);
-        textView1.setText(R.string.Bordeaux_freq);
+        textView1.setText(R.string.Bord_freq);
         TextView textView = (TextView) findViewById(R.id.textView5);
         textView.setText(R.string.Bordeaux);
     }

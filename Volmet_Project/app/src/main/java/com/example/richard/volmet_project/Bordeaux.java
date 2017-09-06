@@ -29,7 +29,7 @@ public class Bordeaux extends AppCompatActivity {
 
 
             textView1.setText(R.string.Bordeaux);
-            textView2.setText(R.string.Bordeaux_freq);
+            textView2.setText(R.string.Bord_freq);
 
             textView3.setText(message);
             // Capture the layout's TextView and set the string as its text
@@ -37,8 +37,20 @@ public class Bordeaux extends AppCompatActivity {
             //textView.setText(message);
 
              }
-            else
-                 {
+            else if (message.equals("Madrid"))
+        {
+
+
+            textView1.setText(R.string.Madrid);
+            textView2.setText(R.string.Madrid_freq);
+
+            textView3.setText(message);
+            // Capture the layout's TextView and set the string as its text
+
+            //textView.setText(message);
+
+        }
+            else     {
             textView1.setText("Unknown");
             textView3.setText("Unknown");
             textView2.setText("Unknown");

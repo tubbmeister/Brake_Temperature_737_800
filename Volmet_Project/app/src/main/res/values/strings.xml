@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Volmet Project</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="Bordeaux">Bordeaux\nToulouse\nParis CDG\nParis orly\nMadrid Barajas\nBarcelona\nPalma\nLisbon\nGeneva</string>
+    <string name="Bordeaux_freq">126.400</string>
+</resources>

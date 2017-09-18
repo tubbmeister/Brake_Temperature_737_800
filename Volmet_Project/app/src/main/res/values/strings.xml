@@ -6,4 +6,12 @@
     <string name="Bord_freq">126.400</string>
     <string name="Madrid_freq">126.200</string>
     <string name="Madrid">Madrid\nBarcelona\nSeville\nMalaga\nValencia\nAlicante\nBilbao\nLisbon\nBordeaux</string>
+    <string name="Lisbon_freq">126.400</string>
+    <string name="Lisbon">Lisbon\nPorto Francisco\nFaro\nSeville\nMadrid\nGran Canaria\nTenerife South\nMadeira\nPorto Santo</string>
+    <string name="Barcelona_freq">127.600</string>
+    <string name="Barcelona">Madrid\nBarcelona\nPalma\nMalaga\nIbiza\nGirona\nMenorca\nToulouse\nMarseille</string>
+    <string name="Marseille_freq">127.405</string>
+    <string name="Marseille">Marseille\nNice\nGeneva\nPais CDG\nRome Fiumicino\nMilan\nPalma\nBarcelona</string>
+    <string name="Paris_freq">126.005</string>
+    <string name="Paris">Paris CDG\nParis Orly\nLyon\nGeneva\nZurich\nLondon Heathrow\nLondon Gatwick\nBrussels\nAmsterdam</string>
 </resources>

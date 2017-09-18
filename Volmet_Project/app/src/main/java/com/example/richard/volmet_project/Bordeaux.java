@@ -50,6 +50,59 @@ public class Bordeaux extends AppCompatActivity {
             //textView.setText(message);
 
         }
+        else if (message.equals("Lisbon"))
+        {
+
+
+            textView1.setText(R.string.Lisbon);
+            textView2.setText(R.string.Lisbon_freq);
+
+            textView3.setText(message);
+            // Capture the layout's TextView and set the string as its text
+
+            //textView.setText(message);
+
+        }
+
+        else if (message.equals("Barcelona"))
+        {
+
+
+            textView1.setText(R.string.Barcelona);
+            textView2.setText(R.string.Barcelona_freq);
+
+            textView3.setText(message);
+            // Capture the layout's TextView and set the string as its text
+
+            //textView.setText(message);
+
+        }
+        else if (message.equals("Marseille"))
+        {
+
+
+            textView1.setText(R.string.Marseille);
+            textView2.setText(R.string.Marseille_freq);
+
+            textView3.setText(message);
+            // Capture the layout's TextView and set the string as its text
+
+            //textView.setText(message);
+
+        }
+        else if (message.equals("Paris"))
+        {
+
+
+            textView1.setText(R.string.Paris);
+            textView2.setText(R.string.Paris_freq);
+
+            textView3.setText(message);
+            // Capture the layout's TextView and set the string as its text
+
+            //textView.setText(message);
+
+        }
             else     {
             textView1.setText("Unknown");
             textView3.setText("Unknown");

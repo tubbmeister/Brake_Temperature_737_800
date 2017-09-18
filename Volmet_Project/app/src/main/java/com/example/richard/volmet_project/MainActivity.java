@@ -67,9 +67,9 @@ spinner.setAdapter(adapter);
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long l) {
     String item = parent.getItemAtPosition(pos).toString();
         Intent intent = new Intent(this, Bordeaux.class);
-        TextView textView7 = (TextView) findViewById(R.id.textView2);
+       // TextView textView7 = (TextView) findViewById(R.id.textView2);
        // EditText editText = (EditText) findViewById(R.id.editText);
-        textView7.setText(item);
+      //  textView7.setText(item);
       //  editText.=item
         //String message = editText.getText().toString();
         String message = item;

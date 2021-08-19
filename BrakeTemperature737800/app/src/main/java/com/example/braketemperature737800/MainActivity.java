@@ -18,9 +18,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText OAT;
     EditText Elevation;
     EditText Weight;
+    EditText CalcUplift;
     String[] FirstArray,SecondArray;
     int Brake_onX1,Brake_onX2,OATX1,OATX2,ElevationX1,ElevationX2, WeightX1,WeightX2;
     int Brake_On_Speed1,OAT1,Elevation1,Weight1,ResultAHi,ResultALo,ResultBHi,ResultBLo;
+    int ElevationArrayHigh, ElevationArrayLo, OATHigh,OATLow;
+    double Y1;
+    double Y2;
+    String Y3; //data results
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         OAT = findViewById(R.id.OAT);
         Elevation = findViewById(R.id.Elevation);
         Weight = findViewById(R.id.Weight);
+        CalcUplift=findViewById(R.id.CalcUplift);
 
 
 
@@ -118,11 +124,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              WeightX2=50;
              WeightX1=40;
          }
+        if(Brake_on_Speed1>179) {
+            Brake_onX2=180;
+            Brake_onX1=160;
+        }
+        else if(Brake_on_Speed1>159 && Brake_on_Speed1<180) {
+            Brake_onX2=180;
+            Brake_onX1=160;
+        }
 
-         if(Brake_on_Speed1>159) {
-             Brake_onX2=180;
-             Brake_onX1=160;
-         }
         else if(Brake_on_Speed1>139 && Brake_on_Speed1<160) {
             Brake_onX2=160;
             Brake_onX1=140;
@@ -140,36 +150,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              Brake_onX1=80;
          }
          if(Elevation1>4999){
-             ElevationX2=10;
-             ElevationX1=5;
+             ElevationX2=10;ElevationArrayHigh = 2;
+             ElevationX1=5;ElevationArrayLo = 1;
          }
          else if(Elevation1>-1 && Elevation1<5000){
-             ElevationX2=5;
-             ElevationX1=0;
+             ElevationX2=5; ElevationArrayHigh=1;
+             ElevationX1=0; ElevationArrayLo=0;
          }
          if(OAT1>39){
-             OATX2=50;
-             OATX1=40;
+             OATX2=50;OATHigh=18; //selects within array
+             OATX1=40;OATLow=15;
          }
          else if(OAT1>29 && OAT1<40){
-             OATX2=40;
-             OATX1=30;
+             OATX2=40;OATHigh=15;
+             OATX1=30;OATLow=12;
          }
          else if(OAT1>19 && OAT1<30){
-             OATX2=30;
-             OATX1=20;
+             OATX2=30;OATHigh=12;
+             OATX1=20;OATLow=9;
          }
          else if(OAT1>14 && OAT1<20){
-             OATX2=20;
-             OATX1=15;
+             OATX2=20;OATHigh=9;
+             OATX1=15;OATLow=6;
          }
          else if(OAT1>9 && OAT1<15){
-             OATX2=15;
-             OATX1=10;
+             OATX2=15;OATHigh=6;
+             OATX1=10;OATLow=3;
          }
          else if(OAT1>-1 && OAT1<10){
-             OATX2=10;
-             OATX1=0;
+             OATX2=10;OATHigh=3;
+             OATX1=0;OATLow=0;
          }
         Resources r = getResources(); //allows array to be loaded
 
@@ -214,6 +224,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
          //now start the calculations
 
+        Y3=FirstArray[OATHigh]; //convert array string to double
+        double d= Double.parseDouble(Y3);
+        CalcUplift.setText((String.valueOf(d))+" ");
 
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);

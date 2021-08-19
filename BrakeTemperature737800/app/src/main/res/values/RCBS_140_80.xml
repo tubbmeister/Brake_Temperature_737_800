@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="RCBS_140_80"> <!-- W.1 -->
+        <item>40.4</item>
+        <item>45.9</item>
+        <item>53</item>
+        <item>41.8</item>
+        <item>47.5</item>
+        <item>54.8</item>
+        <item>42.4</item>
+        <item>48.2</item>
+        <item>55.6</item>
+        <item>42.9</item>
+        <item>48.8</item>
+        <item>56.3</item>
+        <item>44</item>
+        <item>50</item>
+        <item>57.7</item>
+        <item>44.7</item>
+        <item>50.9</item>
+        <item>58.8</item>
+        <item>45.2</item>
+        <item>51.5</item>
+        <item>59.7</item>
+
+
+
+
+
+    </string-array>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

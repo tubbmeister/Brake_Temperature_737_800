@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="RCBS_160_70"> <!-- W.1 -->
+        <item>45.3</item>
+        <item>51.6</item>
+        <item>59.7</item>
+        <item>46.8</item>
+        <item>53.3</item>
+        <item>61.5</item>
+        <item>47.5</item>
+        <item>54</item>
+        <item>62.5</item>
+        <item>48.1</item>
+        <item>54.8</item>
+        <item>63.4</item>
+        <item>49.3</item>
+        <item>56.1</item>
+        <item>64.9</item>
+        <item>50.1</item>
+        <item>57.1</item>
+        <item>66.2</item>
+        <item>50.7</item>
+        <item>58</item>
+        <item>67.4</item>
+
+
+
+
+
+    </string-array>
+
+</resources>

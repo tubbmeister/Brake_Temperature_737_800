@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Brake_Temperature_737_800.iml" filepath="$PROJECT_DIR$/.idea/modules/Brake_Temperature_737_800.iml" group="Brake_Temperature_737_800" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Brake Temperature 737 800/app" />
+    </modules>
+  </component>
+</project>

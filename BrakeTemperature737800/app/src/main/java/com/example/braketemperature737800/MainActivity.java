@@ -2,11 +2,13 @@ package com.example.braketemperature737800;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         String WeightString=Weight.getText().toString();
-        if(TextUtils.isEmpty(ElevationString)) {
+        if(TextUtils.isEmpty(WeightString)) {
             Weight.setError("Add Weight!");
 
         }
@@ -169,10 +171,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              OATX2=10;
              OATX1=0;
          }
-        Resources r = getResources();
+        Resources r = getResources(); //allows array to be loaded
 
          if(Brake_onX2==180 && WeightX2==80) {
+             FirstArray=r.getStringArray(R.array.RCBS_180_80);
+         }
+         else if(Brake_onX2==180 && WeightX2==70){
+             SecondArray=r.getStringArray(R.array.RCBS_180_70);
+         }
+         else if(Brake_onX2==160 && WeightX2==80){
              FirstArray=r.getStringArray(R.array.RCBS_160_80);
          }
+         else if(Brake_onX2==160 && WeightX2==70){
+             FirstArray=r.getStringArray(R.array.RCBS_160_70);
+         }
+         else if(Brake_onX2==140 && WeightX2==80){
+             FirstArray=r.getStringArray(R.array.RCBS_140_80);
+         }
+         else if(Brake_onX2==140 && WeightX2==70){
+             FirstArray=r.getStringArray(R.array.RCBS_140_70);
+         }
+
+          if(Brake_onX1==180 && WeightX1==80){
+             SecondArray=r.getStringArray(R.array.RCBS_180_80);
+         }
+         else if(Brake_onX1==180 && WeightX1==70){
+             SecondArray=r.getStringArray(R.array.RCBS_180_70);
+         }
+         else if(Brake_onX1==160 && WeightX1==80){
+             SecondArray=r.getStringArray(R.array.RCBS_160_80);
+         }
+         else if(Brake_onX1==160 && WeightX1==70){
+             SecondArray=r.getStringArray(R.array.RCBS_160_70);
+         }
+         else if(Brake_onX1==140 && WeightX1==80){
+             SecondArray=r.getStringArray(R.array.RCBS_140_80);
+         }
+         else if(Brake_onX1==140 && WeightX1==70){
+             SecondArray=r.getStringArray(R.array.RCBS_140_70);
+         }
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

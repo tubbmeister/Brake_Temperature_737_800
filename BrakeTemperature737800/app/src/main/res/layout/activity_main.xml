@@ -47,10 +47,10 @@
             android:height="0dp"
 
 
-            android:hint="Brake on Speed"
+            android:hint="Brake on Spd"
             android:inputType="number"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
         <EditText

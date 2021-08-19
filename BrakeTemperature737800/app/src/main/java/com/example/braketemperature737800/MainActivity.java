@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText Weight;
     String[] FirstArray,SecondArray;
     int Brake_onX1,Brake_onX2,OATX1,OATX2,ElevationX1,ElevationX2, WeightX1,WeightX2;
-    int Brake_On_Speed1,OAT1,Elevation1,Weight1;
+    int Brake_On_Speed1,OAT1,Elevation1,Weight1,ResultAHi,ResultALo,ResultBHi,ResultBLo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,22 +73,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         String Brake_onString=Brake_on_speed.getText().toString();
         if(TextUtils.isEmpty(Brake_onString)) {
-            Brake_on_speed.setError("Add Speed!");
+            Brake_on_speed.setError("Speed!");
             return;
         }
         String OATString=OAT.getText().toString();
         if(TextUtils.isEmpty(OATString)) {
-            OAT.setError("Add Temp!");
+            OAT.setError("Temp!");
             return;
         }
         String ElevationString=Elevation.getText().toString();
         if(TextUtils.isEmpty(ElevationString)) {
-            Elevation.setError("Add Elevation!");
+            Elevation.setError("Elevation!");
 
         }
         String WeightString=Weight.getText().toString();
         if(TextUtils.isEmpty(WeightString)) {
-            Weight.setError("Add Weight!");
+            Weight.setError("Weight!");
 
         }
 
@@ -139,11 +139,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              Brake_onX2=100;
              Brake_onX1=80;
          }
-         if(Elevation1>4){
+         if(Elevation1>4999){
              ElevationX2=10;
              ElevationX1=5;
          }
-         else if(Elevation1>-1 && Elevation1<5){
+         else if(Elevation1>-1 && Elevation1<5000){
              ElevationX2=5;
              ElevationX1=0;
          }
@@ -210,6 +210,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          else if(Brake_onX1==140 && WeightX1==70){
              SecondArray=r.getStringArray(R.array.RCBS_140_70);
          }
+
+
+         //now start the calculations
+
+
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }

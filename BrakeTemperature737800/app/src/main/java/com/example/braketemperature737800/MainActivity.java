@@ -253,17 +253,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          else if(Brake_onX2==180 && WeightX2==70){
              FirstArray=r.getStringArray(R.array.RCBS_180_70);
          }
+         else if(Brake_onX2==180 && WeightX2==60){
+             FirstArray=r.getStringArray(R.array.RCBS_180_60);
+         }
+         else if(Brake_onX2==180 && WeightX2==50){
+             FirstArray=r.getStringArray(R.array.RCBS_180_50);
+         }
          else if(Brake_onX2==160 && WeightX2==80){
              FirstArray=r.getStringArray(R.array.RCBS_160_80);
          }
          else if(Brake_onX2==160 && WeightX2==70){
              FirstArray=r.getStringArray(R.array.RCBS_160_70);
          }
+         else if(Brake_onX2==160 && WeightX2==60){
+             FirstArray=r.getStringArray(R.array.RCBS_160_60);
+         }
+         else if(Brake_onX2==160 && WeightX2==50){
+             FirstArray=r.getStringArray(R.array.RCBS_160_50);
+         }
          else if(Brake_onX2==140 && WeightX2==80){
              FirstArray=r.getStringArray(R.array.RCBS_140_80);
          }
          else if(Brake_onX2==140 && WeightX2==70){
              FirstArray=r.getStringArray(R.array.RCBS_140_70);
+         }
+         else if(Brake_onX2==140 && WeightX2==60){
+             FirstArray=r.getStringArray(R.array.RCBS_140_60);
+         }
+         else if(Brake_onX2==140 && WeightX2==50){
+             FirstArray=r.getStringArray(R.array.RCBS_140_50);
+         }
+         else if(Brake_onX2==120 && WeightX2==80){
+             FirstArray=r.getStringArray(R.array.RCBS_120_80);
+         }
+         else if(Brake_onX2==120 && WeightX2==70){
+             FirstArray=r.getStringArray(R.array.RCBS_120_70);
+         }
+         else if(Brake_onX2==120 && WeightX2==60){
+             FirstArray=r.getStringArray(R.array.RCBS_120_60);
+         }
+         else if(Brake_onX2==120 && WeightX2==50){
+             FirstArray=r.getStringArray(R.array.RCBS_120_50);
          }
 
           if(Brake_onX2==180 && WeightX1==80){ //Hi spd, lo wgt
@@ -272,29 +302,76 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          else if(Brake_onX2==180 && WeightX1==70){
              SecondArray=r.getStringArray(R.array.RCBS_180_70);
          }
+          else if(Brake_onX2==180 && WeightX1==60){
+              SecondArray=r.getStringArray(R.array.RCBS_180_60);
+          }
+          else if(Brake_onX2==180 && WeightX1==50){
+              SecondArray=r.getStringArray(R.array.RCBS_180_50);
+          }
          else if(Brake_onX2==160 && WeightX1==80){
              SecondArray=r.getStringArray(R.array.RCBS_160_80);
          }
          else if(Brake_onX2==160 && WeightX1==70){
              SecondArray=r.getStringArray(R.array.RCBS_160_70);
          }
+          else if(Brake_onX2==160 && WeightX1==60){
+              SecondArray=r.getStringArray(R.array.RCBS_160_60);
+          }
+          else if(Brake_onX2==160 && WeightX1==50){
+              SecondArray=r.getStringArray(R.array.RCBS_160_50);
+          }
          else if(Brake_onX2==140 && WeightX1==80){
              SecondArray=r.getStringArray(R.array.RCBS_140_80);
          }
          else if(Brake_onX2==140 && WeightX1==70){
-             SecondArray=r.getStringArray(R.array.RCBS_140_70);
-         }
+              SecondArray=r.getStringArray(R.array.RCBS_140_70);
+          }
+          else if(Brake_onX2==140 && WeightX1==60){
+              SecondArray=r.getStringArray(R.array.RCBS_140_60);
+          }
+          else if(Brake_onX2==140 && WeightX1==50){
+              SecondArray=r.getStringArray(R.array.RCBS_140_50);
+          }
+          else if(Brake_onX2==120 && WeightX1==80){
+              SecondArray=r.getStringArray(R.array.RCBS_120_80);
+          }
+          else if(Brake_onX2==120 && WeightX1==70){
+              SecondArray=r.getStringArray(R.array.RCBS_120_70);
+          }
+          else if(Brake_onX2==120 && WeightX1==60){
+              SecondArray=r.getStringArray(R.array.RCBS_120_60);
+          }
+          else if(Brake_onX2==120 && WeightX1==50){
+              SecondArray=r.getStringArray(R.array.RCBS_120_50);
+          }
+
+
+
+
         if(Brake_onX1==180 && WeightX2==80) { //low spd hi wgt
             ThirdArray = r.getStringArray(R.array.RCBS_180_80);
         }
         else if (Brake_onX1==180 && WeightX2==70) {
             ThirdArray = r.getStringArray(R.array.RCBS_180_70);
         }
+        else if (Brake_onX1==180 && WeightX2==60) {
+            ThirdArray = r.getStringArray(R.array.RCBS_180_60);
+        }
+        else if (Brake_onX1==180 && WeightX2==50) {
+            ThirdArray = r.getStringArray(R.array.RCBS_180_50);
+        }
+
         else if (Brake_onX1==160 && WeightX2==80) {
             ThirdArray = r.getStringArray(R.array.RCBS_160_80);
         }
         else if (Brake_onX1==160 && WeightX2==70) {
             ThirdArray = r.getStringArray(R.array.RCBS_160_70);
+        }
+        else if (Brake_onX1==160 && WeightX2==60) {
+            ThirdArray = r.getStringArray(R.array.RCBS_160_60);
+        }
+        else if (Brake_onX1==160 && WeightX2==50) {
+            ThirdArray = r.getStringArray(R.array.RCBS_160_50);
         }
         else if (Brake_onX1==140 && WeightX2==80) {
             ThirdArray = r.getStringArray(R.array.RCBS_140_80);
@@ -302,7 +379,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (Brake_onX1==140 && WeightX2==70) {
             ThirdArray = r.getStringArray(R.array.RCBS_140_70);
         }
-
+        else if (Brake_onX1==140 && WeightX2==60) {
+            ThirdArray = r.getStringArray(R.array.RCBS_140_60);
+        }
+        else if (Brake_onX1==140 && WeightX2==50) {
+            ThirdArray = r.getStringArray(R.array.RCBS_140_50);
+        }
+        else if (Brake_onX1==120 && WeightX2==80) {
+            ThirdArray = r.getStringArray(R.array.RCBS_120_80);
+        }
+        else if (Brake_onX1==120 && WeightX2==70) {
+            ThirdArray = r.getStringArray(R.array.RCBS_120_70);
+        }
+        else if (Brake_onX1==120 && WeightX2==60) {
+            ThirdArray = r.getStringArray(R.array.RCBS_120_60);
+        }
+        else if (Brake_onX1==120 && WeightX2==50) {
+            ThirdArray = r.getStringArray(R.array.RCBS_120_50);
+        }
 
         if(Brake_onX1==180 && WeightX1==80) { //low spd hi wgt
             FourthArray = r.getStringArray(R.array.RCBS_180_80);
@@ -310,11 +404,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (Brake_onX1==180 && WeightX1==70) {
             FourthArray = r.getStringArray(R.array.RCBS_180_70);
         }
+        else if (Brake_onX1==180 && WeightX1==60) {
+            FourthArray = r.getStringArray(R.array.RCBS_180_60);
+        }
+        else if (Brake_onX1==180 && WeightX1==50) {
+            FourthArray = r.getStringArray(R.array.RCBS_180_50);
+        }
         else if (Brake_onX1==160 && WeightX1==80) {
             FourthArray = r.getStringArray(R.array.RCBS_160_80);
         }
         else if (Brake_onX1==160 && WeightX1==70) {
             FourthArray = r.getStringArray(R.array.RCBS_160_70);
+        }
+        else if (Brake_onX1==160 && WeightX1==60) {
+            FourthArray = r.getStringArray(R.array.RCBS_160_60);
+        }
+        else if (Brake_onX1==160 && WeightX1==50) {
+            FourthArray = r.getStringArray(R.array.RCBS_160_50);
         }
         else if (Brake_onX1==140 && WeightX1==80) {
             FourthArray = r.getStringArray(R.array.RCBS_140_80);
@@ -322,6 +428,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (Brake_onX1==140 && WeightX1==70) {
             FourthArray = r.getStringArray(R.array.RCBS_140_70);
         }
+        else if (Brake_onX1==140 && WeightX1==60) {
+            FourthArray = r.getStringArray(R.array.RCBS_140_60);
+        }
+        else if (Brake_onX1==140 && WeightX1==50) {
+            FourthArray = r.getStringArray(R.array.RCBS_140_50);
+        }
+        else if (Brake_onX1==120 && WeightX1==80) {
+            FourthArray = r.getStringArray(R.array.RCBS_120_80);
+        }
+        else if (Brake_onX1==120 && WeightX1==70) {
+            FourthArray = r.getStringArray(R.array.RCBS_120_70);
+        }
+        else if (Brake_onX1==120 && WeightX1==60) {
+            FourthArray = r.getStringArray(R.array.RCBS_120_60);
+        }
+        else if (Brake_onX1==120 && WeightX1==50) {
+            FourthArray = r.getStringArray(R.array.RCBS_120_50);
+        }
+
          //now start the calculations
         //First Calc
 
@@ -337,7 +462,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Y5=Y5*(Y1-Y2);
         FirstA=Y5+Y2; //High weight, high alt,
-
+        if(OAT1-OATX1==0){
+            FirstA=Y2;
+        } //Nan error (OAT)
         ActualLitres.setText((String.valueOf(FirstA))+" "); //first"A"
         //Y5=Y2+(((OAT1-OATX1)/(OATX2-OATX1))*(Y1-Y2));
         //Y5=FirstArray[OATHigh+ElevationArrayHigh]; //convert array string to double
@@ -352,12 +479,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Y5=Y5*(Y1-Y2);
         FirstB=Y5+Y2; //High weight, high alt,
        // ExpectedLitres.setText((String.valueOf(FirstB))+" ");//first "B"
-
+        if(OAT1-OATX1==0){
+            FirstB=Y2;
+        }//Nan error (OAT)
         FirstAnswer=Elevation1-ElevationX1;
         FirstAnswer=FirstAnswer/(ElevationX2-ElevationX1);
         FirstAnswer=FirstAnswer*(FirstA-FirstB);
         FirstAnswer=FirstAnswer+FirstB; //first number for high wgt high spd
-
+        if(Elevation1-ElevationX1==0){
+            FirstAnswer=FirstB;
+        }//stops NaN error (elevation)
         Y3=ThirdArray[OATHigh+ElevationArrayHigh];
         Y4=ThirdArray[OATLow+ElevationArrayHigh];
         Y1= Double.parseDouble(Y3);
@@ -367,7 +498,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Y5=Y5*(Y1-Y2);
         SecondA=Y5+Y2; //lo spd,hi weight, high alt,
-
+        if(OAT1-OATX1==0){
+            SecondA=Y2;
+        }//stops NaN error (OAT)
         Y3=ThirdArray[OATHigh+ElevationArrayLo];
         Y4=ThirdArray[OATLow+ElevationArrayLo];
         Y1= Double.parseDouble(Y3);
@@ -376,17 +509,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Y5=Y5/(OATX2-OATX1);
 
         Y5=Y5*(Y1-Y2);
-        SecondB=Y5+Y2; //lo spd,hi weight, lo alt,
+        SecondB=Y5+Y2;
+        if(OAT1-OATX1==0){
+            SecondB=Y2;
+        }//stops NaN error (OAT)
+
         SecondAnswer=Elevation1-ElevationX1;
         SecondAnswer=SecondAnswer/(ElevationX2-ElevationX1);
         SecondAnswer=SecondAnswer*(SecondA-SecondB);
         SecondAnswer=SecondAnswer+SecondB; //first number for high wgt high spd
-
+        if(Elevation1-ElevationX1==0){
+            SecondAnswer=SecondB;
+        }//stops NaN error (elevation)
 
         ResultHeavy=Brake_On_Speed1-Brake_onX1;
+
         ResultHeavy=ResultHeavy/(Brake_onX2-Brake_onX1);
+
         ResultHeavy=ResultHeavy*(FirstAnswer-SecondAnswer);
         ResultHeavy=ResultHeavy+SecondAnswer;
+        if(Brake_On_Speed1-Brake_onX1==0){
+            ResultHeavy=SecondAnswer;
+        } //stops NaN error
 
         Y3=SecondArray[OATHigh+ElevationArrayHigh];//hi spd low wgt hi alt
         Y4=SecondArray[OATLow+ElevationArrayHigh];
@@ -399,7 +543,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Y5=Y5*(Y1-Y2);
         ThirdA=Y5+Y2; //hi spd, low weight, high alt,
-
+        if(OAT1-OATX1==0){
+            ThirdA=Y2;
+        }//stops NaN error (OAT)
 
         Y3=SecondArray[OATHigh+ElevationArrayLo];//hi spd,low wgt,lo alt
         Y4=SecondArray[OATLow+ElevationArrayLo];
@@ -410,12 +556,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Y5=Y5*(Y1-Y2);
         ThirdB=Y5+Y2; //high spd, low weight, low alt,
-
+        if(OAT1-OATX1==0){
+            ThirdB=Y2;
+        }//stops NaN error (OAT)
         ThirdAnswer=Elevation1-ElevationX1;
         ThirdAnswer=ThirdAnswer/(ElevationX2-ElevationX1);
         ThirdAnswer=ThirdAnswer*(ThirdA-ThirdB);
         ThirdAnswer=ThirdAnswer+ThirdB; //first number for high wgt high spd
-
+        if(Elevation1-ElevationX1==0){
+            ThirdAnswer=ThirdB;
+        }//stops NaN error (elevation)
 
         Y3=FourthArray[OATHigh+ElevationArrayHigh];//low spd, low wgt, hi alt
         Y4=FourthArray[OATLow+ElevationArrayHigh];
@@ -425,7 +575,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Y5=Y5/(OATX2-OATX1);
         Y5=Y5*(Y1-Y2);
         FourthA=Y5+Y2; //lo spd,Lo weight, high alt,
-
+        if(OAT1-OATX1==0){
+            FourthA=Y2;
+        }//stops NaN error (OAT)
         Y3=FourthArray[OATHigh+ElevationArrayLo];//lo sp,lo wgt,lo alt
         Y4=FourthArray[OATLow+ElevationArrayLo];
         Y1= Double.parseDouble(Y3);
@@ -434,23 +586,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Y5=Y5/(OATX2-OATX1);
         Y5=Y5*(Y1-Y2);
         FourthB=Y5+Y2; //lo spd,Lo weight, high alt,
-
+        if(OAT1-OATX1==0){
+            FourthB=Y2;
+        }//stops NaN error (OAT)
 
         FourthAnswer=Elevation1-ElevationX1;
         FourthAnswer=FourthAnswer/(ElevationX2-ElevationX1);
         FourthAnswer=FourthAnswer*(FourthA-FourthB);
         FourthAnswer=FourthAnswer+FourthB; //first number for high wgt high spd
-
+        if(Elevation1-ElevationX1==0){
+            FourthAnswer=FourthB;
+        }//stops NaN error (elevation)
 
         ResultLight=Brake_On_Speed1-Brake_onX1;
         ResultLight=ResultLight/(Brake_onX2-Brake_onX1);
         ResultLight=ResultLight*(ThirdAnswer-FourthAnswer);
         ResultLight=ResultLight+FourthAnswer;
+        if(Brake_On_Speed1-Brake_onX1==0){
+            ResultLight=FourthAnswer;
+        }//stops NaN error (speed)
 
         FinalResult=Weight1-WeightX1; //actual - min weight
         FinalResult=FinalResult/(WeightX2-WeightX1);
         FinalResult=FinalResult*(ResultHeavy-ResultLight);
+
         FinalResult=FinalResult+ResultLight;
+        if(Weight1-WeightX1==0){
+            FinalResult=ResultLight;
+        } //stops NaN error (weight)
         //double d= Double.parseDouble(FinalResult);
         CalcUplift.setText((String.valueOf(FinalResult))+" ");
          //d= Double.parseDouble(Y4);

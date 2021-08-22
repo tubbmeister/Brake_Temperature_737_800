@@ -13,7 +13,7 @@
            android:id="@+id/enter_landing_speed"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="  Enter Brake on Speed, AC Wgt, Temp and Runway Elev"
+           android:text="  Enter Brake on Speed, AC Wgt, Temp and R/W Elev"
            android:textSize="17sp">
 
        </TextView>
@@ -41,23 +41,23 @@
 
         <EditText
             android:id="@+id/Brake_on_Speed"
-            android:layout_width="0dp"
+            android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:height="0dp"
 
 
             android:hint="Brake on Spd"
             android:inputType="number"
             android:textAlignment="center"
-            android:textSize="19sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Weight"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:height="0dp"
 
 
@@ -71,7 +71,7 @@
             android:id="@+id/OAT"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:height="0dp"
 
             android:hint="OAT"
@@ -84,7 +84,7 @@
             android:id="@+id/Elevation"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:height="0dp"
 
             android:hint="Elevation"

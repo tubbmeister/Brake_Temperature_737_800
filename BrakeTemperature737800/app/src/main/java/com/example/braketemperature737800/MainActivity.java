@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int Brake_onX1,Brake_onX2,OATX1,OATX2,ElevationX1,ElevationX2, WeightX1,WeightX2;
     int Brake_On_Speed1,OAT1,Elevation1,Weight1,ResultBHi,ResultBLo;
     int ElevationArrayHigh, ElevationArrayLo, OATHigh,OATLow;
-    double Y1, ResultHeavy,ResultLight;
+    double Y1, ResultHeavy,ResultLight,FinalResult;
     double Y2,Y5,Y6,Y7,Y8;
     String Y3,Y4; //data results
     double FirstA, FirstB,FirstAnswer1,FirstAnswer,SecondA,SecondB,SecondAnswer;
@@ -351,7 +351,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Y5=Y5*(Y1-Y2);
         FirstB=Y5+Y2; //High weight, high alt,
-        ExpectedLitres.setText((String.valueOf(FirstB))+" ");//first "B"
+       // ExpectedLitres.setText((String.valueOf(FirstB))+" ");//first "B"
 
         FirstAnswer=Elevation1-ElevationX1;
         FirstAnswer=FirstAnswer/(ElevationX2-ElevationX1);
@@ -447,10 +447,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ResultLight=ResultLight*(ThirdAnswer-FourthAnswer);
         ResultLight=ResultLight+FourthAnswer;
 
-
-        double d= Double.parseDouble(Y3);
-        CalcUplift.setText((String.valueOf(FirstAnswer))+" ");
-         d= Double.parseDouble(Y4);
+        FinalResult=Weight1-WeightX1; //actual - min weight
+        FinalResult=FinalResult/(WeightX2-WeightX1);
+        FinalResult=FinalResult*(ResultHeavy-ResultLight);
+        FinalResult=FinalResult+ResultLight;
+        //double d= Double.parseDouble(FinalResult);
+        CalcUplift.setText((String.valueOf(FinalResult))+" ");
+         //d= Double.parseDouble(Y4);
 
 
 

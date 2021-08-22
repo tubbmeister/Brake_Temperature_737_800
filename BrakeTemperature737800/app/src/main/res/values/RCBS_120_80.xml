@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="RCBS_120_80"> <!-- W.1 -->
+        <item>30.9</item>    <!-- 0 deg 0' elev -->
+        <item>35</item>     <!-- 0 deg 5000' elev -->
+        <item>40.2</item>   <!-- 0 deg 10000' elev -->
+        <item>31.9</item>   <!-- 10 deg 0' elev -->
+        <item>36.2</item>   <!-- 10 deg 5000' elev -->
+        <item>41.5</item>   <!-- 10 deg 10000' elev -->
+        <item>32.4</item>
+        <item>36.7</item>
+        <item>42.1</item>
+        <item>32.8</item>
+        <item>37.2</item>
+        <item>42.7</item>
+        <item>33.7</item>
+        <item>38.2</item>
+        <item>43.8</item>
+        <item>34.1</item>
+        <item>38.7</item>
+        <item>44.4</item>
+        <item>34.3</item>
+        <item>39</item>
+        <item>44.9</item>   <!-- 50 deg 10000' elev -->
+
+
+
+
+
+    </string-array>
+
+</resources>

@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText CalcUplift,ExpectedLitres,ActualLitres;
     String[] FirstArray,SecondArray;//for high weight calc
     String[]ThirdArray,FourthArray;//for low weight calc
+    String[] No_Reverse_Max_Man,No_Reverse_Max_Auto,No_Reverse_AB3,No_Reverse_AB2,No_Reverse_AB1;
+    String[] Reverse_Max_Man,Reverse_Max_Auto,Reverse_AB3,Reverse_AB2,Reverse_AB1;
     int Brake_onX1,Brake_onX2,OATX1,OATX2,ElevationX1,ElevationX2, WeightX1,WeightX2;
     int Brake_On_Speed1,OAT1,Elevation1,Weight1,ResultBHi,ResultBLo;
     int ElevationArrayHigh, ElevationArrayLo, OATHigh,OATLow;
@@ -29,7 +31,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String Y3,Y4; //data results
     double FirstA, FirstB,FirstAnswer1,FirstAnswer,SecondA,SecondB,SecondAnswer;
     double ThirdA,ThirdB,FourthA,FourthB,ThirdAnswer,FourthAnswer;
-    @Override
+    double Ref_Brake_Hi, Ref_Brake_Lo;
+    int Ref_BrakeX2,Ref_BrakeX1;
+    double No_Rev_Max_Man1,No_Rev_Max_Auto1,No_Rev_AB3_1,No_Rev_AB2_1,No_Rev_AB1_1;
+    double Rev_Max_Man1,Rev_Max_Auto1,Rev_AB3_1,Rev_AB2_1,Rev_AB1_1;
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -612,8 +619,119 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         FinalResult=FinalResult+ResultLight;
         if(Weight1-WeightX1==0){
-            FinalResult=ResultLight;
+            FinalResult=ResultLight; //The initial Reference brake energy.
         } //stops NaN error (weight)
+
+        if(FinalResult==90){
+            Ref_Brake_Hi=90; Ref_BrakeX2=8;
+            Ref_Brake_Lo=90; Ref_BrakeX1=8;
+        }
+        else if(FinalResult<90 && FinalResult>80){
+            Ref_Brake_Hi=90; Ref_BrakeX2=8;
+            Ref_Brake_Lo=80; Ref_BrakeX1=7;
+        }
+        else if(FinalResult==80){
+            Ref_Brake_Hi=80; Ref_BrakeX2=7;
+            Ref_Brake_Lo=80; Ref_BrakeX1=7;
+        }
+        else if(FinalResult<80 && FinalResult>70){
+            Ref_Brake_Hi=80; Ref_BrakeX2=7;
+            Ref_Brake_Lo=70; Ref_BrakeX1=6;
+        }
+        else if(FinalResult==70){
+            Ref_Brake_Hi=70; Ref_BrakeX2=6;
+            Ref_Brake_Lo=70; Ref_BrakeX1=6;
+        }
+        else if(FinalResult<70 && FinalResult>60){
+            Ref_Brake_Hi=70; Ref_BrakeX2=6;
+            Ref_Brake_Lo=60; Ref_BrakeX1=5;
+        }
+        else if(FinalResult==60){
+            Ref_Brake_Hi=60; Ref_BrakeX2=5;
+            Ref_Brake_Lo=60; Ref_BrakeX1=5;
+        }
+        else if(FinalResult<60 && FinalResult>50){
+            Ref_Brake_Hi=60; Ref_BrakeX2=5;
+            Ref_Brake_Lo=50; Ref_BrakeX1=4;
+        }
+        else if(FinalResult==50){
+            Ref_Brake_Hi=50; Ref_BrakeX2=4;
+            Ref_Brake_Lo=50; Ref_BrakeX1=4;
+        }
+        else if(FinalResult<50 && FinalResult>40){
+            Ref_Brake_Hi=50; Ref_BrakeX2=4;
+            Ref_Brake_Lo=40; Ref_BrakeX1=3;
+        }
+        else if(FinalResult==40){
+            Ref_Brake_Hi=40; Ref_BrakeX2=3;
+            Ref_Brake_Lo=40; Ref_BrakeX1=3;
+        }
+        else if(FinalResult<40 && FinalResult>30){
+            Ref_Brake_Hi=40; Ref_BrakeX2=3;
+            Ref_Brake_Lo=30; Ref_BrakeX1=2;
+        }
+        else if(FinalResult==30){
+            Ref_Brake_Hi=30; Ref_BrakeX2=2;
+            Ref_Brake_Lo=30; Ref_BrakeX1=2;
+        }
+        else if(FinalResult<30 && FinalResult>20){
+            Ref_Brake_Hi=30; Ref_BrakeX2=2;
+            Ref_Brake_Lo=20; Ref_BrakeX1=1;
+        }
+        else if(FinalResult==20){
+            Ref_Brake_Hi=20; Ref_BrakeX2=1;
+            Ref_Brake_Lo=20; Ref_BrakeX1=1;
+        }
+        else if(FinalResult<20 && FinalResult>10){
+            Ref_Brake_Hi=20; Ref_BrakeX2=1;
+            Ref_Brake_Lo=10; Ref_BrakeX1=0;
+        }
+        else if(FinalResult<11){
+            Ref_Brake_Hi=10; Ref_BrakeX2=0;
+            Ref_Brake_Lo=10; Ref_BrakeX1=0;
+        }
+
+        No_Reverse_Max_Man=r.getStringArray(R.array.RBEPB_No_Reverser_Max_Man);
+        No_Reverse_Max_Auto=r.getStringArray(R.array.RBEPB_No_Reverser_Max_Auto);
+        No_Reverse_AB3=r.getStringArray(R.array.RBEPB_No_Reverser_Autobrake3);
+        No_Reverse_AB2=r.getStringArray(R.array.RBEPB_No_Reverser_Autobrake2);
+        No_Reverse_AB1=r.getStringArray(R.array.RBEPB_No_Reverser_Autobrake1);
+        Reverse_Max_Man=r.getStringArray(R.array.RBEPB_Reverser_Max_Man);
+        Reverse_Max_Auto=r.getStringArray(R.array.RBEPB_Reverser_Max_Auto);
+        Reverse_AB3=r.getStringArray(R.array.RBEPB_Reverser_Autobrake3);
+        Reverse_AB2=r.getStringArray(R.array.RBEPB_Reverser_Autobrake2);
+        Reverse_AB1=r.getStringArray(R.array.RBEPB_Reverser_Autobrake1);
+
+
+
+        Y3=No_Reverse_Max_Man[Ref_BrakeX2];
+        Y4=No_Reverse_Max_Man[Ref_BrakeX1];
+        Y1= Double.parseDouble(Y3);
+        Y2= Double.parseDouble(Y4);
+        Y5=(FinalResult-Ref_Brake_Lo);
+        Y5=Y5/(Ref_Brake_Hi-Ref_Brake_Lo);
+        Y5=Y5*(Y1-Y2);
+        No_Rev_Max_Man1=Y5+Y2; //High weight, high alt,
+        if(FinalResult-Ref_BrakeX1==0){
+            No_Rev_Max_Man1=Y2;
+        } //Nan error (OAT)
+
+        Y3=No_Reverse_Max_Auto[Ref_BrakeX2];
+        Y4=No_Reverse_Max_Auto[Ref_BrakeX1];
+        Y1= Double.parseDouble(Y3);
+        Y2= Double.parseDouble(Y4);
+        Y5=(FinalResult-Ref_Brake_Lo);
+        Y5=Y5/(Ref_Brake_Hi-Ref_Brake_Lo);
+        Y5=Y5*(Y1-Y2);
+        No_Rev_Max_Auto1=Y5+Y2; //High weight, high alt,
+        if(FinalResult-Ref_BrakeX1==0){
+            No_Rev_Max_Auto1=Y2;
+        } //Nan error (OAT)
+
+        double test=calculateAnswer(3,5);
+
+
+
         //double d= Double.parseDouble(FinalResult);
         CalcUplift.setText((String.valueOf(FinalResult))+" ");
          //d= Double.parseDouble(Y4);
@@ -623,5 +741,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    public double calculateAnswer(double wingSpan,
+                                  double length) {
+        //do the calculation here
+
+        wingSpan=wingSpan+length;
+        return wingSpan;
     }
 }

@@ -121,7 +121,7 @@
         <EditText
             android:id="@+id/CalcUplift"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="50dp"
             android:layout_weight="0.25"
             android:ems="10"
             android:hint="Calc Uplift"
@@ -133,7 +133,7 @@
         <EditText
             android:id="@+id/ExpectedLitres"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="50dp"
             android:layout_weight="0.25"
             android:ems="0"
             android:hint="Uplift Req"
@@ -145,7 +145,7 @@
         <EditText
             android:id="@+id/ActualLitres"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="50dp"
             android:layout_weight="0.25"
             android:ems="0"
             android:hint="Actual Ltr"

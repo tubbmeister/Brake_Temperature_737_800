@@ -706,7 +706,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Y3=No_Reverse_Max_Man[Ref_BrakeX2];
         Y4=No_Reverse_Max_Man[Ref_BrakeX1];
-        Y1= Double.parseDouble(Y3);
+      /*  Y1= Double.parseDouble(Y3);
         Y2= Double.parseDouble(Y4);
         Y5=(FinalResult-Ref_Brake_Lo);
         Y5=Y5/(Ref_Brake_Hi-Ref_Brake_Lo);
@@ -714,26 +714,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         No_Rev_Max_Man1=Y5+Y2; //High weight, high alt,
         if(FinalResult-Ref_BrakeX1==0){
             No_Rev_Max_Man1=Y2;
-        } //Nan error (OAT)
+        }*/ //Nan error (OAT)
+
+        No_Rev_Max_Man1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
 
         Y3=No_Reverse_Max_Auto[Ref_BrakeX2];
         Y4=No_Reverse_Max_Auto[Ref_BrakeX1];
-        Y1= Double.parseDouble(Y3);
-        Y2= Double.parseDouble(Y4);
-        Y5=(FinalResult-Ref_Brake_Lo);
-        Y5=Y5/(Ref_Brake_Hi-Ref_Brake_Lo);
-        Y5=Y5*(Y1-Y2);
-        No_Rev_Max_Auto1=Y5+Y2; //High weight, high alt,
-        if(FinalResult-Ref_BrakeX1==0){
-            No_Rev_Max_Auto1=Y2;
-        } //Nan error (OAT)
+//        Y1= Double.parseDouble(Y3); //convert from string
+//        Y2= Double.parseDouble(Y4);
+//        Y5=(FinalResult-Ref_Brake_Lo);
+//        Y5=Y5/(Ref_Brake_Hi-Ref_Brake_Lo);
+//        Y5=Y5*(Y1-Y2);
+//        No_Rev_Max_Auto1=Y5+Y2; //High weight, high alt,
+//        if(FinalResult-Ref_BrakeX1==0){
+//            No_Rev_Max_Auto1=Y2;
+//        } //Nan error (OAT)
 
-        double test=calculateAnswer(3,5);
+         No_Rev_Max_Auto1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
 
+        Y3=No_Reverse_AB3[Ref_BrakeX2];
+        Y4=No_Reverse_AB3[Ref_BrakeX1];
 
+        No_Rev_AB3_1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
+
+        Y3=No_Reverse_AB2[Ref_BrakeX2];
+        Y4=No_Reverse_AB2[Ref_BrakeX1];
+
+        No_Rev_AB2_1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
+
+        Y3=No_Reverse_AB1[Ref_BrakeX2];
+        Y4=No_Reverse_AB1[Ref_BrakeX1];
+
+        No_Rev_AB1_1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
+
+        Y3=Reverse_Max_Man[Ref_BrakeX2];
+        Y4=Reverse_Max_Man[Ref_BrakeX1];
+
+        Rev_Max_Man1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
+
+        Y3=Reverse_Max_Auto[Ref_BrakeX2];
+        Y4=Reverse_Max_Auto[Ref_BrakeX1];
+
+        Rev_Max_Auto1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
+
+        Y3=Reverse_AB3[Ref_BrakeX2];
+        Y4=Reverse_AB3[Ref_BrakeX1];
+
+        Rev_AB3_1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
+
+        Y3=Reverse_AB2[Ref_BrakeX2];
+        Y4=Reverse_AB2[Ref_BrakeX1];
+
+        Rev_AB2_1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
+
+        Y3=Reverse_AB1[Ref_BrakeX2];
+        Y4=Reverse_AB1[Ref_BrakeX1];
+
+        Rev_AB1_1=calculateAnswer(Y3,Y4,FinalResult,Ref_Brake_Hi,Ref_Brake_Lo);
 
         //double d= Double.parseDouble(FinalResult);
-        CalcUplift.setText((String.valueOf(FinalResult))+" ");
+        CalcUplift.setText((String.valueOf(No_Rev_Max_Auto1))+" ");
          //d= Double.parseDouble(Y4);
 
 
@@ -743,11 +783,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-    public double calculateAnswer(double wingSpan,
-                                  double length) {
+    public double calculateAnswer(String  YY3,String YY4,double FinalResult1,double Ref_Brake_Hi1,double Ref_Brake_Lo1) {
         //do the calculation here
+       Double YY1= Double.parseDouble(Y3); //convert from string
+       Double YY2= Double.parseDouble(Y4);
 
-        wingSpan=wingSpan+length;
-        return wingSpan;
+        double YY5 = (FinalResult1 - Ref_Brake_Lo1);
+        YY5 = YY5/(Ref_Brake_Hi1 - Ref_Brake_Lo1);
+        YY5 = YY5 * (YY1 - YY2);
+        double answer = YY5 + YY2;
+        if (FinalResult1-Ref_Brake_Lo1 ==0) {//don't leave gaps between variables!
+        answer = YY2;
+    }
+        return answer;
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Cooling_Time_Steel_Ground"> <!-- W.1 -->
+        <item>10</item>    <!-- 0 deg 0' elev -->
+        <item>20</item>     <!-- 0 deg 5000' elev -->
+        <item>30</item>   <!-- 0 deg 10000' elev -->
+        <item>40</item>   <!-- 10 deg 0' elev -->
+        <item>50</item>   <!-- 10 deg 5000' elev -->
+        <item>60</item>   <!-- 10 deg 10000' elev -->
+
+
+
+
+
+
+    </string-array>
+
+</resources>

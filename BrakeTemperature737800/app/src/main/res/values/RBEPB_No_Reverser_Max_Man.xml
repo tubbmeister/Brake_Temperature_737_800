@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="RBEPB_No_Reverser_Max_Man"> <!-- W.1 -->
+        <item>7.8</item>    <!-- 0 deg 0' elev -->
+        <item>16.3</item>     <!-- 0 deg 5000' elev -->
+        <item>25.3</item>   <!-- 0 deg 10000' elev -->
+        <item>34.7</item>   <!-- 10 deg 0' elev -->
+        <item>44.7</item>   <!-- 10 deg 5000' elev -->
+        <item>55</item>   <!-- 10 deg 10000' elev -->
+        <item>65.7</item>
+        <item>76.6</item>
+        <item>87.9</item>
+
+
+
+
+
+
+    </string-array>
+
+</resources>

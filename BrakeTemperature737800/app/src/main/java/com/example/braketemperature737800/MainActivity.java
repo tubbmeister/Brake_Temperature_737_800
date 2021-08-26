@@ -848,10 +848,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        // Warning.setText("why");
         // CalcUplift.setText((String.valueOf(FinalResult))+" ");
         //d= Double.parseDouble(Y4);
+        CoolingTime = FinalResult;
 
         if (NoTR.isChecked()) {
           //  if (RadioRTO.isChecked()) {
-                CoolingTime = FinalResult;
+
                 UseThis= calculateCooling(CoolingTime);
                 if(UseThis==999.0){
                     textViewR11.setText("CAUTION");
@@ -863,7 +864,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR11.setTextColor((Color.parseColor("#ff0000")));
 
                 }
-               else    {UseThis= calculateCooling(CoolingTime);
+               else  { // {UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
                     textViewR11.setText((String.valueOf(roundUp))+" ");
                         //textViewR11.setText(precision.format(UseThis));
@@ -883,7 +884,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR12.setTextColor((Color.parseColor("#ff0000")));
 
                 }
-                else    {UseThis= calculateCooling(CoolingTime);
+                else    {//UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
                     textViewR12.setText((String.valueOf(roundUp))+" ");
                    // textViewR12.setText(precision.format(UseThis));
@@ -902,7 +903,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR50.setTextColor((Color.parseColor("#ff0000")));
 
                 }
-                else    {UseThis= calculateCooling(CoolingTime);
+                else    {//UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
                     textViewR50.setText((String.valueOf(roundUp))+" ");
                    // textViewR50.setText(precision.format(UseThis));
@@ -921,7 +922,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR51.setTextColor((Color.parseColor("#ff0000")));
 
                 }
-                else    {UseThis= calculateCooling(CoolingTime);
+                else    {//UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
                     textViewR51.setText((String.valueOf(roundUp))+" ");
                     //textViewR51.setText(precision.format(UseThis));
@@ -939,7 +940,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR52.setTextColor((Color.parseColor("#ff0000")));
 
                 }
-                else    {UseThis= calculateCooling(CoolingTime);
+                else    {//UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
                     textViewR52.setText((String.valueOf(roundUp))+" ");
                   //  textViewR52.setText(precision.format(UseThis));
@@ -958,7 +959,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR53.setTextColor((Color.parseColor("#ff0000")));
 
                 }
-                else    {UseThis= calculateCooling(CoolingTime);
+                else    {//UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
                     textViewR53.setText((String.valueOf(roundUp))+" ");
                   //  textViewR53.setText(precision.format(UseThis));
@@ -983,7 +984,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                // textViewR11.setTextColor((Color.parseColor("#ff0000")));
 
             } else {
-                UseThis = calculateCooling(CoolingTime);
+                //UseThis = calculateCooling(CoolingTime);
                 int roundUp= (int) Math.ceil(UseThis);
                 textViewR11.setText((String.valueOf(roundUp))+" ");
                // textViewR11.setText(precision.format(UseThis));
@@ -1009,7 +1010,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             else {
-                UseThis = calculateCooling(CoolingTime);
+               // UseThis = calculateCooling(CoolingTime);
                 int roundUp= (int) Math.ceil(UseThis);
                 textViewR12.setText((String.valueOf(roundUp))+" ");
                // textViewR12.setText(precision.format(UseThis));
@@ -1034,7 +1035,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             else {
-                UseThis = calculateCooling(CoolingTime);
+                //UseThis = calculateCooling(CoolingTime);
                 int roundUp= (int) Math.ceil(CoolingTime);
                 textViewR50.setText((String.valueOf(roundUp))+" ");
                // textViewR50.setText(precision.format(UseThis));
@@ -1059,7 +1060,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             else {
-                UseThis = calculateCooling(CoolingTime);
+             //   UseThis = calculateCooling(CoolingTime);
                 int roundUp= (int) Math.ceil(UseThis);
                 textViewR51.setText((String.valueOf(roundUp))+" ");
                // textViewR51.setText(precision.format(UseThis));
@@ -1082,7 +1083,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
             else {
-                UseThis = calculateCooling(CoolingTime);
+               // UseThis = calculateCooling(CoolingTime);
                 int roundUp= (int) Math.ceil(UseThis);
                 textViewR52.setText((String.valueOf(roundUp))+" ");
                 //textViewR52.setText(precision.format(UseThis));
@@ -1106,7 +1107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
             else {
-                UseThis = calculateCooling(CoolingTime);
+              //  UseThis = calculateCooling(CoolingTime);
                // textViewR53.setText(precision.format(UseThis));
                 int roundUp= (int) Math.ceil(UseThis);
                 textViewR53.setText((String.valueOf(roundUp))+" ");
@@ -1150,78 +1151,126 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public double calculateCooling(double CoolingTime  ) {
         //do the calculation here
-        if (CoolingTime < 17) {
-            CoolingTime=666;
-        } else if (CoolingTime > 16 && CoolingTime < 21) {
+        if (Steel.isChecked()) {
+            if (CoolingTime < 17) {
+                CoolingTime = 666;
+            } else if (CoolingTime > 16.9 && CoolingTime < 20) {
+                if (CoolingTime == 17) {
+                    CoolingTime = 10;
+                } else {
+                    CoolingTime1 = CoolingTime - 17;
+                    CoolingTime1 = CoolingTime1 * 3.3;
+                    CoolingTime = 10 + CoolingTime1;
+                }
+            } else if (CoolingTime > 19.9 && CoolingTime < 23) {
+                if (CoolingTime == 20) {
+                    CoolingTime = 20;
+                } else {
+                    CoolingTime1 = CoolingTime - 20;
+                    CoolingTime1 = CoolingTime1 * 3.3;
+                    CoolingTime = 20 + CoolingTime1;
+                }
+            } else if (CoolingTime > 22.9 && CoolingTime < 25) {
+                if (CoolingTime == 23) {
+                    CoolingTime = 30;
+                } else {
+                    CoolingTime1 = CoolingTime - 23;
+                    CoolingTime1 = CoolingTime1 * 5;
+                    CoolingTime = 30 + CoolingTime1;
+                }
+            }  else if (CoolingTime > 24.9 && CoolingTime < 28) {
+                if (CoolingTime == 25) {
+                    CoolingTime = 40;
+                } else {
+                    double i = 2.7*3.3;
+                    CoolingTime1 = CoolingTime - 25;
+                    CoolingTime1 = CoolingTime1 * 3.3;
+                    CoolingTime = 40 + CoolingTime1;
+
+                }
+            } else if (CoolingTime > 27.9 && CoolingTime < 32) {
+                if (CoolingTime == 28) {
+                    CoolingTime = 50;
+                } else {
+                    CoolingTime1 = CoolingTime - 28;
+                    CoolingTime1 = CoolingTime1 * 2.5;
+                    CoolingTime = 50 + CoolingTime1;
+                }
+            } else if (CoolingTime > 32 && CoolingTime < 49) {
+                CoolingTime = 999;
+                //  Warning.setText("CAUTION");
+                //  textViewR3.setText("CAUTION");
+                // textViewR12.setTextColor(Color.parseColor("#ff0000"));
+                //  textViewR12.setText("---------");
+                //  textViewR50.setText("Wheel plugs may melt.\n Delay take off and \ninspect after 1 hour. \nIf o'heat occurs after \nt/o extend gear soon \nfor at least 7 mins");
+            } else if (CoolingTime > 48.9) {
+                CoolingTime = 9999;
+                // Warning.setText("FUSE PLUG MELT ZONE!!");
+                // textViewR12.setTextColor(Color.parseColor("#ff0000"));
+                // textViewR12.setText("---------");
+                // textViewR3.setText("FUSE PLUG MELT ZONE!!");
+                // textViewR50.setText("Clear r/w immediately\n Unless req'd do not\n set parking brake.\nDo not approach\n gear or attempt to taxi\n for 1 hour.");
+            }
+        }
+        else {if (CoolingTime < 17) { //do carbon brakes calcs
+            CoolingTime = 666;
+        } else if (CoolingTime > 16.9 && CoolingTime < 19) {
             if (CoolingTime == 17) {
-                CoolingTime = 10;
+                CoolingTime = 6.7;
             } else {
                 CoolingTime1 = CoolingTime - 17;
-                CoolingTime1 = CoolingTime1 * 0.3;
-                CoolingTime = CoolingTime + CoolingTime1;
+                CoolingTime1 = CoolingTime1 * 3.1;
+                CoolingTime = 6.7 + CoolingTime1;
             }
-        } else if (CoolingTime > 19 && CoolingTime < 24) {
-            if (CoolingTime == 20) {
-                CoolingTime = 20;
+        } else if (CoolingTime > 18.9 && CoolingTime < 20.9) {
+            if (CoolingTime == 19) {
+                CoolingTime = 16;
             } else {
-                CoolingTime1 = CoolingTime - 20;
-                CoolingTime1 = CoolingTime1 * 0.2;
-                CoolingTime = CoolingTime + CoolingTime1;
+                CoolingTime1 = CoolingTime - 19;
+                CoolingTime1 = CoolingTime1 * 4.26;
+                CoolingTime = 16 + CoolingTime1;
             }
-        } else if (CoolingTime > 22 && CoolingTime < 26) {
-            if (CoolingTime == 23) {
-                CoolingTime = 30;
+        } else if (CoolingTime > 20.8 && CoolingTime < 23.5) {
+            if (CoolingTime == 20.9) {
+                CoolingTime = 24.1;
             } else {
-                CoolingTime1 = CoolingTime - 23;
-                CoolingTime1 = CoolingTime1 * 0.2;
-                CoolingTime = CoolingTime + CoolingTime1;
+                CoolingTime1 = CoolingTime - 20.9;
+                CoolingTime1 = CoolingTime1 * 3.88;
+                CoolingTime = 24.1 + CoolingTime1;
             }
-        } else if (CoolingTime > 22 && CoolingTime < 26) {
-            if (CoolingTime == 23) {
-                CoolingTime = 30;
+        } else if (CoolingTime > 23.4 && CoolingTime < 26.9) {
+            if (CoolingTime == 23.5) {
+                CoolingTime = 34.2;
             } else {
-                CoolingTime1 = CoolingTime - 23;
-                CoolingTime1 = CoolingTime1 * 0.2;
-                CoolingTime = CoolingTime + CoolingTime1;
+                CoolingTime1 = CoolingTime - 23.5;
+                CoolingTime1 = CoolingTime1 * 3.44;
+                CoolingTime = 34.2 + CoolingTime1;
             }
-        }
-        else if (CoolingTime > 24 && CoolingTime < 29) {
-            if (CoolingTime == 25) {
-                CoolingTime = 40;
+        } else if (CoolingTime > 26.8 && CoolingTime < 29.4) {
+            if (CoolingTime == 26.9) {
+                CoolingTime = 45.9;
             } else {
-                CoolingTime1 = CoolingTime - 25;
-                CoolingTime1 = CoolingTime1 * 0.3;
-                CoolingTime = CoolingTime + CoolingTime1;
+                CoolingTime1 = CoolingTime - 26.9;
+                CoolingTime1 = CoolingTime1 * 2.5;
+                CoolingTime = 45.9 + CoolingTime1;
             }
-        }
-        else if (CoolingTime > 27 && CoolingTime < 33) {
-            if (CoolingTime == 28) {
-                CoolingTime = 50;
-            } else {
-                CoolingTime1 = CoolingTime - 28;
-                CoolingTime1 = CoolingTime1 * 0.4;
-                CoolingTime = CoolingTime + CoolingTime1;
-            }
-        }
-        else if (CoolingTime > 32 && CoolingTime<49)  {
-            CoolingTime=999;
-          //  Warning.setText("CAUTION");
-          //  textViewR3.setText("CAUTION");
-           // textViewR12.setTextColor(Color.parseColor("#ff0000"));
-          //  textViewR12.setText("---------");
-          //  textViewR50.setText("Wheel plugs may melt.\n Delay take off and \ninspect after 1 hour. \nIf o'heat occurs after \nt/o extend gear soon \nfor at least 7 mins");
-        }
-        else if (CoolingTime > 48)  {
-            CoolingTime=9999;
-           // Warning.setText("FUSE PLUG MELT ZONE!!");
-           // textViewR12.setTextColor(Color.parseColor("#ff0000"));
-           // textViewR12.setText("---------");
-           // textViewR3.setText("FUSE PLUG MELT ZONE!!");
-           // textViewR50.setText("Clear r/w immediately\n Unless req'd do not\n set parking brake.\nDo not approach\n gear or attempt to taxi\n for 1 hour.");
+        } else if (CoolingTime > 29.3 && CoolingTime < 41.1) {
+            CoolingTime = 999;
+            //  Warning.setText("CAUTION");
+            //  textViewR3.setText("CAUTION");
+            // textViewR12.setTextColor(Color.parseColor("#ff0000"));
+            //  textViewR12.setText("---------");
+            //  textViewR50.setText("Wheel plugs may melt.\n Delay take off and \ninspect after 1 hour. \nIf o'heat occurs after \nt/o extend gear soon \nfor at least 7 mins");
+        } else if (CoolingTime > 41.1) {
+            CoolingTime = 9999;
+            // Warning.setText("FUSE PLUG MELT ZONE!!");
+            // textViewR12.setTextColor(Color.parseColor("#ff0000"));
+            // textViewR12.setText("---------");
+            // textViewR3.setText("FUSE PLUG MELT ZONE!!");
+            // textViewR50.setText("Clear r/w immediately\n Unless req'd do not\n set parking brake.\nDo not approach\n gear or attempt to taxi\n for 1 hour.");
         }
 
-
-
+        }
         return CoolingTime;
     }
 
@@ -1243,7 +1292,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void addListenerRadioGroup3 () {
 
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup1);
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup3);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 

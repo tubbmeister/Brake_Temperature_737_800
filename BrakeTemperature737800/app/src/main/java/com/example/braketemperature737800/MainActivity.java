@@ -1,19 +1,25 @@
 package com.example.braketemperature737800;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+
+import static java.lang.Math.ceil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -40,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double No_Rev_Max_Man1,No_Rev_Max_Auto1,No_Rev_AB3_1,No_Rev_AB2_1,No_Rev_AB1_1;
     double Rev_Max_Man1,Rev_Max_Auto1,Rev_AB3_1,Rev_AB2_1,Rev_AB1_1;
     RadioButton NoTR,TR,RadioRTO,RadioMax_Man,Radio_Max_Auto,Radio_AB3,Radio_AB2,Radio_AB1;
-    TextView Warning;
+    TextView Warning,textViewR11,textViewR21,textViewR31,textViewR12,textViewR50,textViewR3;
+    RadioGroup RadioGroup,RadioGroup1;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +66,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ExpectedLitres=findViewById(R.id.ExpectedLitres);
         ActualLitres=findViewById(R.id.ActualLitres);
         Warning=findViewById(R.id.Warning);
+        textViewR11=findViewById(R.id.textViewR11);
+        textViewR50=findViewById(R.id.textViewR50);
+            textViewR3=findViewById(R.id.textViewR3);
+
+
+        textViewR12=findViewById(R.id.textViewR12);
 
 
 
-        Brake_on_speed.setOnClickListener(this);
+
+
+            Brake_on_speed.setOnClickListener(this);
         OAT.setOnClickListener(this);
         Elevation.setOnClickListener(this);
         Weight.setOnClickListener(this);
 
-
+            addListenerRadioGroup();
+            addListenerRadioGroup1();
 
 
 
@@ -121,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int OAT1 = ((Integer.parseInt(OAT.getText().toString())));
         int Elevation1 = (Integer.parseInt(Elevation.getText().toString()));
-        int Weight1 = (Integer.parseInt(Weight.getText().toString()));
+        double Weight1 = (Double.parseDouble(Weight.getText().toString()));
 
         NoTR = (RadioButton) findViewById(R.id.radioButton2);
         TR = (RadioButton) findViewById(R.id.radioButton3);
@@ -145,9 +161,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (Weight1 > 60 && Weight1 < 70) {
             WeightX2 = 70;
             WeightX1 = 60;
-        } else if (Weight1 > 59 && Weight1 < 70) {
-            WeightX2 = 70;
-            WeightX1 = 60;
+        } else if (Weight1 > 50 && Weight1 < 60) {
+            WeightX2 = 60;
+            WeightX1 = 50;
         } else if (Weight1 == 50) {
             WeightX2 = 50;
             WeightX1 = 50;
@@ -421,7 +437,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (OAT1 - OATX1 == 0) {
             FirstA = Y2;
         } //Nan error (OAT)
-        ActualLitres.setText((String.valueOf(FirstA)) + " "); //first"A"
+       // ActualLitres.setText((String.valueOf(FirstA)) + " "); //first"A"
         //Y5=Y2+(((OAT1-OATX1)/(OATX2-OATX1))*(Y1-Y2));
         //Y5=FirstArray[OATHigh+ElevationArrayHigh]; //convert array string to double
 
@@ -742,6 +758,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DecimalFormat precision = new DecimalFormat("0.00");
         // reduced answer to 2 decimals
         CalcUplift.setText(precision.format(FinalResult));
+        ActualLitres.setText("Hello!");
+        textViewR11.setText(precision.format(FinalResult));
+
+        Warning.setText("why");
         // CalcUplift.setText((String.valueOf(FinalResult))+" ");
         //d= Double.parseDouble(Y4);
 
@@ -776,10 +796,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         Warning.setText("");
+        textViewR50.setText("");
+        textViewR3.setText("");//resets displayed text
+        textViewR12.setTextColor(Color.parseColor("#000000"));
+
         //ActualLitres.setText((String.valueOf(CoolingTime))+" ");
         ExpectedLitres.setText(precision.format(CoolingTime));
+
+        int roundUp= (int) Math.ceil(CoolingTime);
+        textViewR12.setText((String.valueOf(roundUp))+" ");
+
         if (CoolingTime < 17) {
             ActualLitres.setText("No Special Procedure\n Required");
+            textViewR12.setText("No Special Procedure\n Required");
         } else if (CoolingTime > 16 && CoolingTime < 21) {
             if (CoolingTime == 17) {
                 CoolingTime = 10;
@@ -833,9 +862,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (CoolingTime > 32 && CoolingTime<49)  {
             Warning.setText("CAUTION");
+            textViewR3.setText("CAUTION");
+            textViewR12.setTextColor(Color.parseColor("#ff0000"));
+            textViewR12.setText("---------");
+            textViewR50.setText("Wheel plugs may melt.\n Delay take off and \ninspect after 1 hour. \nIf o'heat occurs after \nt/o extend gear soon \nfor at least 7 mins");
         }
         else if (CoolingTime > 48)  {
-            Warning.setText("FUSE PLUG MELT ZONE!!");
+           Warning.setText("FUSE PLUG MELT ZONE!!");
+            textViewR12.setTextColor(Color.parseColor("#ff0000"));
+            textViewR12.setText("---------");
+            textViewR3.setText("FUSE PLUG MELT ZONE!!");
+            textViewR50.setText("Clear r/w immediately\n Unless req'd do not\n set parking brake.\nDo not approach\n gear or attempt to taxi\n for 1 hour.");
         }
 
 
@@ -857,4 +894,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
         return answer;
     }
-}
+    public void addListenerRadioGroup () {
+
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            // checkedId is the RadioButton selected
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                Button btn;
+                btn=(Button)findViewById(R.id.Calculate);
+                btn.performClick();
+            }
+
+        });
+    }
+    public void addListenerRadioGroup1 () {
+
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup1);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            // checkedId is the RadioButton selected
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                Button btn;
+                btn=(Button)findViewById(R.id.Calculate);
+                btn.performClick();
+            }
+
+        }); //must add "addListenerRadioGroup below oncreate
+    }
+    }

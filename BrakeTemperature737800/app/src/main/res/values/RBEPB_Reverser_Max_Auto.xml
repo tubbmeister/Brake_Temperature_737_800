@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="RBEPB_Reverser_Max_Auto"> <!-- W.1 -->
-        <item>7</item>    <!-- 0 deg 0' elev -->
-        <item>14.6</item>     <!-- 0 deg 5000' elev -->
-        <item>22.8</item>   <!-- 0 deg 10000' elev -->
-        <item>31.4</item>   <!-- 10 deg 0' elev -->
-        <item>40.5</item>   <!-- 10 deg 5000' elev -->
-        <item>49.9</item>   <!-- 10 deg 10000' elev -->
-        <item>59.7</item>
-        <item>69.8</item>
-        <item>80</item>
+        <item>5.8</item>    <!-- 0 deg 0' elev -->
+        <item>12.3</item>     <!-- 0 deg 5000' elev -->
+        <item>19.5</item>   <!-- 0 deg 10000' elev -->
+        <item>27.2</item>   <!-- 10 deg 0' elev -->
+        <item>35.6</item>   <!-- 10 deg 5000' elev -->
+        <item>44.5</item>   <!-- 10 deg 10000' elev -->
+        <item>53.9</item>
+        <item>63.7</item>
+        <item>74.1</item>
 
 
 

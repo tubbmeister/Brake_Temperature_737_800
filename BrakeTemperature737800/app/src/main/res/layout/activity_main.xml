@@ -326,13 +326,13 @@
 
     <TableLayout
         android:id="@+id/tableLayout5"
-        android:layout_width="match_parent"
+        android:layout_width="354sp"
         android:layout_height="100dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="2dp"
 
         app:layout_constraintHorizontal_bias="0.0"
 
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -434,8 +434,8 @@
         android:textSize="13dp"
         android:visibility="visible"
         android:textColor="@android:color/black"
-        android:text="When in caution zone, wheel fuse plugs may melt. Delay takeoff and inspect after one hour. If overheat occurs
-after takeoff, extend gear soon for at least 7 minutes.\nWhen in fuse plug melt zone, clear runway immediately. Unless required, do not set parking brake. Do not
+        android:text="When in CAUTION zone, wheel fuse plugs may melt. Delay takeoff and inspect after one hour. If overheat occurs
+after takeoff, extend gear soon for at least 7 minutes.\nWhen in FUSE PLUG MELT ZONE, clear runway immediately. Unless required, do not set parking brake. Do not
 approach gear or attempt to taxi for one hour. Tire, wheel and brake replacement may be required. If
 overheat occurs after takeoff, extend gear soon for at least 12 minutes." />
 

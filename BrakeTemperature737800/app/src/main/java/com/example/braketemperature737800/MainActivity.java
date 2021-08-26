@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int Ref_BrakeX2,Ref_BrakeX1;
     double No_Rev_Max_Man1,No_Rev_Max_Auto1,No_Rev_AB3_1,No_Rev_AB2_1,No_Rev_AB1_1;
     double Rev_Max_Man1,Rev_Max_Auto1,Rev_AB3_1,Rev_AB2_1,Rev_AB1_1;
-    RadioButton NoTR,TR,RadioRTO,RadioMax_Man,Radio_Max_Auto,Radio_AB3,Radio_AB2,Radio_AB1;
+    RadioButton NoTR,TR,Steel,Carbon;
     TextView Warning,textViewR11,textViewR21,textViewR31,textViewR12,textViewR50,textViewR3;
     TextView textViewR51,textViewR52,textViewR53;
     RadioGroup RadioGroup,RadioGroup1;
@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             //addListenerRadioGroup();
             addListenerRadioGroup1();
+            addListenerRadioGroup3();
 
 
 
@@ -161,6 +162,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         NoTR = (RadioButton) findViewById(R.id.radioButton2);
         TR = (RadioButton) findViewById(R.id.radioButton3);
+        Steel = (RadioButton) findViewById(R.id.radioButtonSteel);
+        Carbon = (RadioButton) findViewById(R.id.radioButtonCarbon);
+
+
         //RadioMax_Man = (RadioButton) findViewById(R.id.RadioMax_Man);
        // Radio_Max_Auto = (RadioButton) findViewById(R.id.Radio_Max_Auto);
         //RadioRTO = (RadioButton) findViewById(R.id.RadioRTO);
@@ -334,6 +339,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             FirstArray = r.getStringArray(R.array.RCBS_120_60);
         } else if (Brake_onX2 == 120 && WeightX2 == 50) {
             FirstArray = r.getStringArray(R.array.RCBS_120_50);
+        }else if (Brake_onX2 == 100 && WeightX2 == 80) {
+            FirstArray = r.getStringArray(R.array.RCBS_100_80);
+        }else if (Brake_onX2 == 100 && WeightX2 == 70) {
+            FirstArray = r.getStringArray(R.array.RCBS_100_70);
+        }
+        else if (Brake_onX2 == 100 && WeightX2 == 60) {
+            FirstArray = r.getStringArray(R.array.RCBS_100_60);
+        }else if (Brake_onX2 == 100 && WeightX2 == 50) {
+            FirstArray = r.getStringArray(R.array.RCBS_100_50);
+        }else if (Brake_onX2 == 80 && WeightX2 == 80) {
+            FirstArray = r.getStringArray(R.array.RCBS_80_80);
+        }else if (Brake_onX2 == 80 && WeightX2 == 70) {
+            FirstArray = r.getStringArray(R.array.RCBS_80_70);
+        }else if (Brake_onX2 == 80 && WeightX2 == 60) {
+            FirstArray = r.getStringArray(R.array.RCBS_80_60);
         }
 
         if (Brake_onX2 == 180 && WeightX1 == 80) { //Hi spd, lo wgt
@@ -368,6 +388,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SecondArray = r.getStringArray(R.array.RCBS_120_60);
         } else if (Brake_onX2 == 120 && WeightX1 == 50) {
             SecondArray = r.getStringArray(R.array.RCBS_120_50);
+        }else if (Brake_onX2 == 100 && WeightX1 == 80) {
+            SecondArray = r.getStringArray(R.array.RCBS_100_80);
+        }
+        else if (Brake_onX2 == 100 && WeightX1 == 70) {
+            SecondArray = r.getStringArray(R.array.RCBS_100_70);
+        }else if (Brake_onX2 == 100 && WeightX1 == 60) {
+            SecondArray = r.getStringArray(R.array.RCBS_100_60);
+        }else if (Brake_onX2 == 100 && WeightX1 == 50) {
+            SecondArray = r.getStringArray(R.array.RCBS_100_50);
+        }else if (Brake_onX2 == 80 && WeightX1 == 80) {
+            SecondArray = r.getStringArray(R.array.RCBS_80_80);
+        }else if (Brake_onX2 == 80 && WeightX1 == 70) {
+            SecondArray = r.getStringArray(R.array.RCBS_80_70);
+        }else if (Brake_onX2 == 80 && WeightX1 == 60) {
+            SecondArray = r.getStringArray(R.array.RCBS_80_60);
         }
 
 
@@ -404,6 +439,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (Brake_onX1 == 120 && WeightX2 == 50) {
             ThirdArray = r.getStringArray(R.array.RCBS_120_50);
         }
+        else if (Brake_onX1 == 100 && WeightX2 == 80) {
+            ThirdArray = r.getStringArray(R.array.RCBS_100_80);
+        }else if (Brake_onX1 == 100 && WeightX2 == 70) {
+            ThirdArray = r.getStringArray(R.array.RCBS_100_70);
+        }else if (Brake_onX1 == 100 && WeightX2 == 60) {
+            ThirdArray = r.getStringArray(R.array.RCBS_100_60);
+        }else if (Brake_onX1 == 100 && WeightX2 == 50) {
+            ThirdArray = r.getStringArray(R.array.RCBS_100_50);
+        }else if (Brake_onX1 == 80 && WeightX2 == 80) {
+            ThirdArray = r.getStringArray(R.array.RCBS_80_80);
+        }else if (Brake_onX1 == 80 && WeightX2 == 70) {
+            ThirdArray = r.getStringArray(R.array.RCBS_80_70);
+        }else if (Brake_onX1 == 80 && WeightX2 == 60) {
+            ThirdArray = r.getStringArray(R.array.RCBS_80_60);
+        }
 
         if (Brake_onX1 == 180 && WeightX1 == 80) { //low spd hi wgt
             FourthArray = r.getStringArray(R.array.RCBS_180_80);
@@ -437,6 +487,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             FourthArray = r.getStringArray(R.array.RCBS_120_60);
         } else if (Brake_onX1 == 120 && WeightX1 == 50) {
             FourthArray = r.getStringArray(R.array.RCBS_120_50);
+        }else if (Brake_onX1 == 100 && WeightX1 == 80) {
+            FourthArray = r.getStringArray(R.array.RCBS_100_80);
+        }else if (Brake_onX1 == 100 && WeightX1 == 70) {
+            FourthArray = r.getStringArray(R.array.RCBS_100_70);
+        }else if (Brake_onX1 == 100 && WeightX1 == 60) {
+            FourthArray = r.getStringArray(R.array.RCBS_100_60);
+        }else if (Brake_onX1 == 100 && WeightX1 == 50) {
+            FourthArray = r.getStringArray(R.array.RCBS_100_50);
+        }else if (Brake_onX1 == 80 && WeightX1 == 80) {
+            FourthArray = r.getStringArray(R.array.RCBS_80_80);
+        }else if (Brake_onX1 == 80 && WeightX1 == 70) {
+            FourthArray = r.getStringArray(R.array.RCBS_80_70);
+        }else if (Brake_onX1 == 80 && WeightX1 == 60) {
+            FourthArray = r.getStringArray(R.array.RCBS_80_60);
         }
 
         //now start the calculations
@@ -781,7 +845,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         textViewR11.setText(precision.format(FinalResult));
 
-        Warning.setText("why");
+       // Warning.setText("why");
         // CalcUplift.setText((String.valueOf(FinalResult))+" ");
         //d= Double.parseDouble(Y4);
 
@@ -1162,6 +1226,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void addListenerRadioGroup1 () {
+
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup1);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            // checkedId is the RadioButton selected
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                Button btn;
+                btn=(Button)findViewById(R.id.Calculate);
+                btn.performClick();
+            }
+
+        }); //must add "addListenerRadioGroup below oncreate
+    }
+    public void addListenerRadioGroup3 () {
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup1);
 

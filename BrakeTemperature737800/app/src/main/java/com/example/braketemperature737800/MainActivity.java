@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int Brake_On_Speed1,OAT1,Elevation1,Weight1,ResultBHi,ResultBLo;
     int ElevationArrayHigh, ElevationArrayLo, OATHigh,OATLow;
     double Y1, ResultHeavy,ResultLight,FinalResult,CoolingTime,CoolingTime1;
-    double Y2,Y5,Y6,Y7,Y8;
+    double Y2,Y5,Y6,Y7,Y8,UseThis;
     String Y3,Y4; //data results
     double FirstA, FirstB,FirstAnswer1,FirstAnswer,SecondA,SecondB,SecondAnswer;
     double ThirdA,ThirdB,FourthA,FourthB,ThirdAnswer,FourthAnswer;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double Rev_Max_Man1,Rev_Max_Auto1,Rev_AB3_1,Rev_AB2_1,Rev_AB1_1;
     RadioButton NoTR,TR,RadioRTO,RadioMax_Man,Radio_Max_Auto,Radio_AB3,Radio_AB2,Radio_AB1;
     TextView Warning,textViewR11,textViewR21,textViewR31,textViewR12,textViewR50,textViewR3;
+    TextView textViewR51,textViewR52,textViewR53;
     RadioGroup RadioGroup,RadioGroup1;
 
         @Override
@@ -64,10 +65,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Weight = findViewById(R.id.Weight);
         CalcUplift=findViewById(R.id.CalcUplift);
         ExpectedLitres=findViewById(R.id.ExpectedLitres);
-        ActualLitres=findViewById(R.id.ActualLitres);
+        //ActualLitres=findViewById(R.id.ActualLitres);
         Warning=findViewById(R.id.Warning);
         textViewR11=findViewById(R.id.textViewR11);
         textViewR50=findViewById(R.id.textViewR50);
+            textViewR51=findViewById(R.id.textViewR51);
+            textViewR52=findViewById(R.id.textViewR52);
+            textViewR53=findViewById(R.id.textViewR53);
             textViewR3=findViewById(R.id.textViewR3);
 
 
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Elevation.setOnClickListener(this);
         Weight.setOnClickListener(this);
 
-            addListenerRadioGroup();
+            //addListenerRadioGroup();
             addListenerRadioGroup1();
 
 
@@ -110,6 +114,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void Calculate(View view) {
+
+
+
+
+        textViewR11.setTextColor(Color.parseColor("#000000"));
+        textViewR12.setTextColor(Color.parseColor("#000000"));
+        textViewR50.setTextColor(Color.parseColor("#000000"));
+        textViewR51.setTextColor(Color.parseColor("#000000"));
+        textViewR52.setTextColor(Color.parseColor("#000000"));
+        textViewR53.setTextColor(Color.parseColor("#000000"));
+        textViewR11.setTextSize(25);
+        textViewR12.setTextSize(25);
+        textViewR50.setTextSize(25);
+        textViewR51.setTextSize(25);
+        textViewR52.setTextSize(25);
+        textViewR53.setTextSize(25);
 
         String Brake_onString = Brake_on_speed.getText().toString();
         if (TextUtils.isEmpty(Brake_onString)) {
@@ -141,12 +161,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         NoTR = (RadioButton) findViewById(R.id.radioButton2);
         TR = (RadioButton) findViewById(R.id.radioButton3);
-        RadioMax_Man = (RadioButton) findViewById(R.id.RadioMax_Man);
-        Radio_Max_Auto = (RadioButton) findViewById(R.id.Radio_Max_Auto);
-        RadioRTO = (RadioButton) findViewById(R.id.RadioRTO);
-        Radio_AB3 = (RadioButton) findViewById(R.id.Radio_AB3);
-        Radio_AB2 = (RadioButton) findViewById(R.id.Radio_AB2);
-        Radio_AB1 = (RadioButton) findViewById(R.id.Radio_AB1);
+        //RadioMax_Man = (RadioButton) findViewById(R.id.RadioMax_Man);
+       // Radio_Max_Auto = (RadioButton) findViewById(R.id.Radio_Max_Auto);
+        //RadioRTO = (RadioButton) findViewById(R.id.RadioRTO);
+       // Radio_AB3 = (RadioButton) findViewById(R.id.Radio_AB3);
+       // Radio_AB2 = (RadioButton) findViewById(R.id.Radio_AB2);
+       // Radio_AB1 = (RadioButton) findViewById(R.id.Radio_AB1);
 
 
         if (Weight1 > 69) {
@@ -757,8 +777,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //double d= Double.parseDouble(FinalResult);
         DecimalFormat precision = new DecimalFormat("0.00");
         // reduced answer to 2 decimals
-        CalcUplift.setText(precision.format(FinalResult));
-        ActualLitres.setText("Hello!");
+        ExpectedLitres.setText(precision.format(FinalResult));
+
         textViewR11.setText(precision.format(FinalResult));
 
         Warning.setText("why");
@@ -766,49 +786,308 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //d= Double.parseDouble(Y4);
 
         if (NoTR.isChecked()) {
-            if (RadioRTO.isChecked()) {
+          //  if (RadioRTO.isChecked()) {
                 CoolingTime = FinalResult;
-            } else if (RadioMax_Man.isChecked()) {
+                UseThis= calculateCooling(CoolingTime);
+                if(UseThis==999.0){
+                    textViewR11.setText("CAUTION");
+                    textViewR11.setTextColor((Color.parseColor("#ff0000")));
+                }
+              else if(UseThis==9999.0) {
+                    textViewR11.setText("Fuse Plug\nMelt Zone");
+                    textViewR11.setTextSize(15);
+                    textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+                }
+               else    {UseThis= calculateCooling(CoolingTime);
+                    int roundUp= (int) Math.ceil(UseThis);
+                    textViewR11.setText((String.valueOf(roundUp))+" ");
+                        //textViewR11.setText(precision.format(UseThis));
+               }
+
+
+           // } else if (RadioMax_Man.isChecked()) {
                 CoolingTime = No_Rev_Max_Man1;
-            } else if (Radio_Max_Auto.isChecked()) {
+                UseThis= calculateCooling(CoolingTime);
+                if(UseThis==999.0){
+                    textViewR12.setText("CAUTION");
+                    textViewR12.setTextColor((Color.parseColor("#ff0000")));
+                }
+                else if(UseThis==9999.0) {
+                    textViewR12.setText("Fuse Plug\nMelt Zone");
+                    textViewR12.setTextSize(15);
+                    textViewR12.setTextColor((Color.parseColor("#ff0000")));
+
+                }
+                else    {UseThis= calculateCooling(CoolingTime);
+                    int roundUp= (int) Math.ceil(UseThis);
+                    textViewR12.setText((String.valueOf(roundUp))+" ");
+                   // textViewR12.setText(precision.format(UseThis));
+                }
+
+          //  } else if (Radio_Max_Auto.isChecked()) {
                 CoolingTime = No_Rev_Max_Auto1;
-            } else if (Radio_AB3.isChecked()) {
+                UseThis= calculateCooling(CoolingTime);
+                if(UseThis==999.0){
+                    textViewR50.setText("CAUTION");
+                    textViewR50.setTextColor((Color.parseColor("#ff0000")));
+                }
+                else if(UseThis==9999.0) {
+                    textViewR50.setText("Fuse Plug\nMelt Zone");
+                    textViewR50.setTextSize(15);
+                    textViewR50.setTextColor((Color.parseColor("#ff0000")));
+
+                }
+                else    {UseThis= calculateCooling(CoolingTime);
+                    int roundUp= (int) Math.ceil(UseThis);
+                    textViewR50.setText((String.valueOf(roundUp))+" ");
+                   // textViewR50.setText(precision.format(UseThis));
+                    }
+
+           // } else if (Radio_AB3.isChecked()) {
                 CoolingTime = No_Rev_AB3_1;
-            } else if (Radio_AB2.isChecked()) {
+                UseThis= calculateCooling(CoolingTime);
+                if(UseThis==999.0){
+                    textViewR51.setText("CAUTION");
+                    textViewR51.setTextColor((Color.parseColor("#ff0000")));
+                }
+                else if(UseThis==9999.0) {
+                    textViewR51.setText("Fuse Plug\nMelt Zone");
+                    textViewR51.setTextSize(15);
+                    textViewR51.setTextColor((Color.parseColor("#ff0000")));
+
+                }
+                else    {UseThis= calculateCooling(CoolingTime);
+                    int roundUp= (int) Math.ceil(UseThis);
+                    textViewR51.setText((String.valueOf(roundUp))+" ");
+                    //textViewR51.setText(precision.format(UseThis));
+                }
+          //  } else if (Radio_AB2.isChecked()) {
                 CoolingTime = No_Rev_AB2_1;
-            } else if (Radio_AB1.isChecked()) {
+                UseThis= calculateCooling(CoolingTime);
+                if(UseThis==999.0){
+                    textViewR52.setText("CAUTION");
+                    textViewR52.setTextColor((Color.parseColor("#ff0000")));
+                }
+                else if(UseThis==9999.0) {
+                    textViewR52.setText("Fuse Plug\nMelt Zone");
+                    textViewR52.setTextSize(15);
+                    textViewR52.setTextColor((Color.parseColor("#ff0000")));
+
+                }
+                else    {UseThis= calculateCooling(CoolingTime);
+                    int roundUp= (int) Math.ceil(UseThis);
+                    textViewR52.setText((String.valueOf(roundUp))+" ");
+                  //  textViewR52.setText(precision.format(UseThis));
+                }
+
+           // } else if (Radio_AB1.isChecked()) {
                 CoolingTime = No_Rev_AB1_1;
+                UseThis= calculateCooling(CoolingTime);
+                if(UseThis==999.0){
+                    textViewR53.setText("CAUTION");
+                    textViewR53.setTextColor((Color.parseColor("#ff0000")));
+                }
+                else if(UseThis==9999.0) {
+                    textViewR53.setText("Fuse Plug\nMelt Zone");
+                    textViewR53.setTextSize(15);
+                    textViewR53.setTextColor((Color.parseColor("#ff0000")));
+
+                }
+                else    {UseThis= calculateCooling(CoolingTime);
+                    int roundUp= (int) Math.ceil(UseThis);
+                    textViewR53.setText((String.valueOf(roundUp))+" ");
+                  //  textViewR53.setText(precision.format(UseThis));
+                }
+
+        }
+
+        if (TR.isChecked()) {
+            //  if (RadioRTO.isChecked()) {
+            CoolingTime = FinalResult;
+            UseThis = calculateCooling(CoolingTime);
+            if (UseThis == 999.0) {
+                textViewR11.setText("CAUTION");
+                textViewR11.setTextColor((Color.parseColor("#ff0000")));
+            } else if (UseThis == 9999.0) {
+                textViewR11.setText("Fuse Plug\nMelt Zone");
+                textViewR11.setTextSize(15);
+                textViewR11.setTextColor((Color.parseColor("#ff0000")));
+            } else if (UseThis == 666.0) {
+                textViewR11.setText(" No\n special\n procedure\n required");
+                textViewR11.setTextSize(12);
+               // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+            } else {
+                UseThis = calculateCooling(CoolingTime);
+                int roundUp= (int) Math.ceil(UseThis);
+                textViewR11.setText((String.valueOf(roundUp))+" ");
+               // textViewR11.setText(precision.format(UseThis));
             }
-        } else if (TR.isChecked()) {
-            if (RadioRTO.isChecked()) {
-                CoolingTime = FinalResult;
-            } else if (RadioMax_Man.isChecked()) {
-                CoolingTime = Rev_Max_Man1;
-            } else if (Radio_Max_Auto.isChecked()) {
-                CoolingTime = Rev_Max_Auto1;
-            } else if (Radio_AB3.isChecked()) {
-                CoolingTime = Rev_AB3_1;
-            } else if (Radio_AB2.isChecked()) {
-                CoolingTime = Rev_AB2_1;
-            } else if (Radio_AB1.isChecked()) {
-                CoolingTime = Rev_AB1_1;
+
+
+            // } else if (RadioMax_Man.isChecked()) {
+            CoolingTime = Rev_Max_Man1;
+            UseThis = calculateCooling(CoolingTime);
+            if (UseThis == 999.0) {
+                textViewR12.setText("CAUTION");
+                textViewR12.setTextColor((Color.parseColor("#ff0000")));
+            } else if (UseThis == 9999.0) {
+                textViewR12.setText("Fuse Plug\nMelt Zone");
+                textViewR12.setTextSize(15);
+                textViewR12.setTextColor((Color.parseColor("#ff0000")));
+
+            } else if (UseThis == 666.0) {
+                textViewR12.setText(" No\n special\n procedure\n required");
+                textViewR12.setTextSize(12);
+                // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+            }
+
+            else {
+                UseThis = calculateCooling(CoolingTime);
+                int roundUp= (int) Math.ceil(UseThis);
+                textViewR12.setText((String.valueOf(roundUp))+" ");
+               // textViewR12.setText(precision.format(UseThis));
+            }
+
+            //  } else if (Radio_Max_Auto.isChecked()) {
+            CoolingTime = Rev_Max_Auto1;
+            UseThis = calculateCooling(CoolingTime);
+            if (UseThis == 999.0) {
+                textViewR50.setText("CAUTION");
+                textViewR50.setTextColor((Color.parseColor("#ff0000")));
+            } else if (UseThis == 9999.0) {
+                textViewR50.setText("Fuse Plug\nMelt Zone");
+                textViewR50.setTextSize(15);
+                textViewR50.setTextColor((Color.parseColor("#ff0000")));
+
+            } else if (UseThis == 666.0) {
+                textViewR50.setText(" No\n special\n procedure\n required");
+                textViewR50.setTextSize(12);
+                // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+            }
+
+            else {
+                UseThis = calculateCooling(CoolingTime);
+                int roundUp= (int) Math.ceil(CoolingTime);
+                textViewR50.setText((String.valueOf(roundUp))+" ");
+               // textViewR50.setText(precision.format(UseThis));
+            }
+
+            // } else if (Radio_AB3.isChecked()) {
+            CoolingTime = Rev_AB3_1;
+            UseThis = calculateCooling(CoolingTime);
+            if (UseThis == 999.0) {
+                textViewR51.setText("CAUTION");
+                textViewR51.setTextColor((Color.parseColor("#ff0000")));
+            } else if (UseThis == 9999.0) {
+                textViewR51.setText("Fuse Plug\nMelt Zone");
+                textViewR51.setTextSize(15);
+                textViewR51.setTextColor((Color.parseColor("#ff0000")));
+
+            }else if (UseThis == 666.0) {
+                textViewR51.setText(" No\n special\n procedure\n required");
+                textViewR51.setTextSize(12);
+                // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+            }
+
+            else {
+                UseThis = calculateCooling(CoolingTime);
+                int roundUp= (int) Math.ceil(UseThis);
+                textViewR51.setText((String.valueOf(roundUp))+" ");
+               // textViewR51.setText(precision.format(UseThis));
+            }
+            //  } else if (Radio_AB2.isChecked()) {
+            CoolingTime = Rev_AB2_1;
+            UseThis = calculateCooling(CoolingTime);
+            if (UseThis == 999.0) {
+                textViewR52.setText("CAUTION");
+                textViewR52.setTextColor((Color.parseColor("#ff0000")));
+            } else if (UseThis == 9999.0) {
+                textViewR52.setText("Fuse Plug\nMelt Zone");
+                textViewR52.setTextSize(15);
+                textViewR52.setTextColor((Color.parseColor("#ff0000")));
+
+            }else if (UseThis == 666.0) {
+                textViewR52.setText(" No\n special\n procedure\n required");
+                textViewR52.setTextSize(12);
+                // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+            }
+            else {
+                UseThis = calculateCooling(CoolingTime);
+                int roundUp= (int) Math.ceil(UseThis);
+                textViewR52.setText((String.valueOf(roundUp))+" ");
+                //textViewR52.setText(precision.format(UseThis));
+            }
+
+            // } else if (Radio_AB1.isChecked()) {
+            CoolingTime = Rev_AB1_1;
+            UseThis = calculateCooling(CoolingTime);
+            if (UseThis == 999.0) {
+                textViewR53.setText("CAUTION");
+                textViewR53.setTextColor((Color.parseColor("#ff0000")));
+            } else if (UseThis == 9999.0) {
+                textViewR53.setText("Fuse Plug\nMelt Zone");
+                textViewR53.setTextSize(15);
+                textViewR53.setTextColor((Color.parseColor("#ff0000")));
+
+            }else if (UseThis == 666.0) {
+                textViewR53.setText(" No\n special\n procedure\n required");
+                textViewR53.setTextSize(12);
+                // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+            }
+            else {
+                UseThis = calculateCooling(CoolingTime);
+               // textViewR53.setText(precision.format(UseThis));
+                int roundUp= (int) Math.ceil(UseThis);
+                textViewR53.setText((String.valueOf(roundUp))+" ");
             }
 
         }
-        Warning.setText("");
-        textViewR50.setText("");
-        textViewR3.setText("");//resets displayed text
-        textViewR12.setTextColor(Color.parseColor("#000000"));
+
+
+
+        //Warning.setText("");
+       // textViewR50.setText("");
+       // textViewR3.setText("");//resets displayed text
+        //textViewR12.setTextColor(Color.parseColor("#000000"));
 
         //ActualLitres.setText((String.valueOf(CoolingTime))+" ");
-        ExpectedLitres.setText(precision.format(CoolingTime));
+        //ExpectedLitres.setText(precision.format(CoolingTime));
 
-        int roundUp= (int) Math.ceil(CoolingTime);
-        textViewR12.setText((String.valueOf(roundUp))+" ");
+       // int roundUp= (int) Math.ceil(CoolingTime);
+        //textViewR12.setText((String.valueOf(roundUp))+" ");
 
+
+
+
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+    public double calculateAnswer(String  YY3,String YY4,double FinalResult1,double Ref_Brake_Hi1,double Ref_Brake_Lo1) {
+        //do the calculation here
+       Double YY1= Double.parseDouble(Y3); //convert from string
+       Double YY2= Double.parseDouble(Y4);
+
+        double YY5 = (FinalResult1 - Ref_Brake_Lo1);
+        YY5 = YY5/(Ref_Brake_Hi1 - Ref_Brake_Lo1);
+        YY5 = YY5 * (YY1 - YY2);
+        double answer = YY5 + YY2;
+        if (FinalResult1-Ref_Brake_Lo1 ==0) {//don't leave gaps between variables!
+        answer = YY2;
+    }
+        return answer;
+    }
+    public double calculateCooling(double CoolingTime  ) {
+        //do the calculation here
         if (CoolingTime < 17) {
-            ActualLitres.setText("No Special Procedure\n Required");
-            textViewR12.setText("No Special Procedure\n Required");
+            CoolingTime=666;
         } else if (CoolingTime > 16 && CoolingTime < 21) {
             if (CoolingTime == 17) {
                 CoolingTime = 10;
@@ -861,55 +1140,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         else if (CoolingTime > 32 && CoolingTime<49)  {
-            Warning.setText("CAUTION");
-            textViewR3.setText("CAUTION");
-            textViewR12.setTextColor(Color.parseColor("#ff0000"));
-            textViewR12.setText("---------");
-            textViewR50.setText("Wheel plugs may melt.\n Delay take off and \ninspect after 1 hour. \nIf o'heat occurs after \nt/o extend gear soon \nfor at least 7 mins");
+            CoolingTime=999;
+          //  Warning.setText("CAUTION");
+          //  textViewR3.setText("CAUTION");
+           // textViewR12.setTextColor(Color.parseColor("#ff0000"));
+          //  textViewR12.setText("---------");
+          //  textViewR50.setText("Wheel plugs may melt.\n Delay take off and \ninspect after 1 hour. \nIf o'heat occurs after \nt/o extend gear soon \nfor at least 7 mins");
         }
         else if (CoolingTime > 48)  {
-           Warning.setText("FUSE PLUG MELT ZONE!!");
-            textViewR12.setTextColor(Color.parseColor("#ff0000"));
-            textViewR12.setText("---------");
-            textViewR3.setText("FUSE PLUG MELT ZONE!!");
-            textViewR50.setText("Clear r/w immediately\n Unless req'd do not\n set parking brake.\nDo not approach\n gear or attempt to taxi\n for 1 hour.");
+            CoolingTime=9999;
+           // Warning.setText("FUSE PLUG MELT ZONE!!");
+           // textViewR12.setTextColor(Color.parseColor("#ff0000"));
+           // textViewR12.setText("---------");
+           // textViewR3.setText("FUSE PLUG MELT ZONE!!");
+           // textViewR50.setText("Clear r/w immediately\n Unless req'd do not\n set parking brake.\nDo not approach\n gear or attempt to taxi\n for 1 hour.");
         }
 
 
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
 
-    public double calculateAnswer(String  YY3,String YY4,double FinalResult1,double Ref_Brake_Hi1,double Ref_Brake_Lo1) {
-        //do the calculation here
-       Double YY1= Double.parseDouble(Y3); //convert from string
-       Double YY2= Double.parseDouble(Y4);
-
-        double YY5 = (FinalResult1 - Ref_Brake_Lo1);
-        YY5 = YY5/(Ref_Brake_Hi1 - Ref_Brake_Lo1);
-        YY5 = YY5 * (YY1 - YY2);
-        double answer = YY5 + YY2;
-        if (FinalResult1-Ref_Brake_Lo1 ==0) {//don't leave gaps between variables!
-        answer = YY2;
+        return CoolingTime;
     }
-        return answer;
-    }
-    public void addListenerRadioGroup () {
 
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup);
-
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            // checkedId is the RadioButton selected
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                Button btn;
-                btn=(Button)findViewById(R.id.Calculate);
-                btn.performClick();
-            }
-
-        });
-    }
     public void addListenerRadioGroup1 () {
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RadioGroup1);

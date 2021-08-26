@@ -26,7 +26,7 @@
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="80dp"
         android:layout_marginStart="1dp"
         android:shrinkColumns="*"
 
@@ -49,10 +49,10 @@
             android:layout_weight="1"
             android:height="0dp"
             android:background="@drawable/border"
-            android:hint="Brake on \nSpd"
+            android:hint="Brake on \nSpd\n(- half hw\n+ 1.5 tail)"
             android:inputType="number"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <!-- \n allows carriage return!! -->
@@ -67,7 +67,7 @@
             android:hint="Weight in\n 1000 kg"
             android:inputType="numberDecimal"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
@@ -80,7 +80,7 @@
             android:hint="OAT"
             android:inputType="number"
             android:textAlignment="center"
-            android:textSize="19sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
@@ -93,7 +93,7 @@
             android:hint="Elevation"
             android:inputType="number"
             android:textAlignment="center"
-            android:textSize="19sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
     </TableRow>
 
@@ -119,21 +119,13 @@
 
             android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/textViewRR"
-                android:layout_width="95dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/border"
-                android:text="  - half headwind, \n 1.5 x tail"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+
 
         <Button
             android:id="@+id/Calculate"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="2dp"
             android:background="@drawable/border"
             android:onClick="Calculate"
             android:text="Calculate"
@@ -142,25 +134,45 @@
 
 
             <RadioGroup
-                android:layout_width="fill_parent"
-                android:layout_height="90dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/RadioGroup1"
-                android:layout_marginLeft="20dp">
+                android:layout_marginLeft="5dp">
 
 
             <RadioButton
                 android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="No Reversers" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="2 Reversers" />
         </RadioGroup>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/RadioGroup3"
+                android:layout_marginLeft="5dp">
+
+
+                <RadioButton
+                    android:id="@+id/radioButtonSteel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Steel Brakes" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonCarbon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Carbon Brakes" />
+            </RadioGroup>
 
 
         </TableRow>
@@ -168,8 +180,8 @@
     </TableLayout>
     <TableLayout
         android:id="@+id/tableLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_width="360sp"
+        android:layout_height="50dp"
         android:layout_marginStart="1dp"
 
 
@@ -190,11 +202,11 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:ems="10"
-            android:hint="Initial Brake Energy"
-            android:visibility="invisible"
+            android:text="Initial Brake Energy = "
+            android:clickable="false"
             android:inputType="textPersonName"
             android:textAlignment="center"
-            android:textSize="15dp"
+            android:textSize="13dp"
             android:textStyle="bold" />
 
         <EditText
@@ -202,26 +214,15 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.25"
-            android:visibility="invisible"
+
             android:ems="0"
-            android:hint="Uplift Req"
+            android:hint=""
             android:inputType="number"
             android:textAlignment="center"
             android:textSize="21sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/ActualLitres"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.25"
-            android:visibility="invisible"
-            android:ems="0"
-            android:hint="Actual Ltr"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textSize="21sp"
-            android:textStyle="bold" />
+
     </TableRow>
 
 
@@ -230,22 +231,22 @@
 
     <TableLayout
         android:id="@+id/tableLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="354sp"
 
-        android:layout_marginTop="4dp"
-        android:shrinkColumns="*"
-        android:stretchColumns="0,1,2,3,4,5,6,7,8,9"
+            android:layout_height="70dp"
+        android:layout_marginStart="2dp"
+
+        android:layout_marginTop="5dp"
+
+
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        android:layout_marginEnd="10dp">
+
+
+        android:layout_marginEnd="2dp">
 
         <TableRow
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="126dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
 
             >
@@ -253,97 +254,70 @@
 
             <TextView
                 android:id="@+id/textViewR1"
-                android:text="Initial Ref\n Brake Energy"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/border"
+                android:text="RTO\nMax\nMan"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:background="@drawable/border"
-                android:textSize="18sp"
-                android:layout_width="100dp"
-                android:layout_height="match_parent" />
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/textViewR2"
-                android:layout_width="100dp"
+                android:layout_width="59sp"
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
-                android:text="Cooling Time\n  (Mins)"
+                android:text="Land\nMax\nMan"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/textViewR3"
-                android:layout_width="100dp"
+                android:layout_width="59sp"
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
-                android:text=""
+                android:text="Max\nAuto"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="25sp" />
 
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
 
+            <TextView
+                android:id="@+id/textViewR4"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:text="AB3"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
 
+            <TextView
+                android:id="@+id/textViewR5"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:text="AB2"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
 
-
-
-
+            <TextView
+                android:id="@+id/textViewR6"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:text="AB1"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
 
 
         </TableRow>
 
-        <TableRow
 
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-
-            >
-
-            <TextView
-                android:id="@+id/textViewR11"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/border"
-
-
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textViewR12"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/border"
-                android:gravity="center_horizontal"
-                android:textColor="@android:color/black"
-                android:textSize="25dp"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:id="@+id/textViewR50"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/border"
-                android:gravity="center_horizontal"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-
-                />
-
-
-
-
-
-
-
-
-
-
-
-        </TableRow>
 
 
 
@@ -353,98 +327,117 @@
     <TableLayout
         android:id="@+id/tableLayout5"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:layout_marginStart="1dp"
-        android:shrinkColumns="*"
-        android:stretchColumns="*"
+
         app:layout_constraintHorizontal_bias="0.0"
 
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
         <TableRow
-            android:layout_width="match_parent"
+
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
 
-            android:layout_weight="1">
+            >
 
-
-            <RadioGroup
-                android:id="@+id/RadioGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-
-                android:layout_marginTop="1dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textViewR11"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center|center_vertical"
 
 
-                <RadioButton
-                    android:id="@+id/RadioRTO"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border"
-                    android:checked="true"
-                    android:textSize="13dp"
-                    android:text="RTO \nMax \nMan" />
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textViewR12"
+                android:layout_width="59dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center|center_vertical"
+
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/textViewR50"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center|center_vertical"
+
+                android:textSize="25dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                />
+            <TextView
+                android:id="@+id/textViewR51"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center|center_vertical"
+
+                android:textSize="25dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                />
+            <TextView
+                android:id="@+id/textViewR52"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center|center_vertical"
+
+                android:textSize="25dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/textViewR53"
+                android:layout_width="59sp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:gravity="center|center_vertical"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+
+                />
 
 
-                <RadioButton
-                    android:id="@+id/RadioMax_Man"
-                    android:layout_width="wrap_content"
-                    android:textSize="13dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border"
-                    android:text="Land \n Max \nMan" />
-
-                <RadioButton
-                    android:id="@+id/Radio_Max_Auto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border"
-                    android:textSize="13dp"
-                    android:text="Land \n Max \nAuto" />
-
-                <RadioButton
-                    android:id="@+id/Radio_AB3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="13dp"
-                    android:background="@drawable/border"
-                    android:text="AB\n3" />
-
-                <RadioButton
-                    android:id="@+id/Radio_AB2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="13dp"
-                    android:background="@drawable/border"
-                    android:text="AB\n2" />
-
-                <RadioButton
-                    android:id="@+id/Radio_AB1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="13dp"
-                    android:background="@drawable/border"
-
-                    android:text="AB\n1" />
-
-
-            </RadioGroup>
         </TableRow>
+
+
 
     </TableLayout>
 
     <TextView
         android:id="@+id/Warning"
-        android:layout_width="160dp"
-        android:layout_height="60dp"
-        android:textSize="20dp"
-        android:visibility="invisible"
-        android:text="" />
+        android:layout_margin="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:textSize="13dp"
+        android:visibility="visible"
+        android:textColor="@android:color/black"
+        android:text="When in caution zone, wheel fuse plugs may melt. Delay takeoff and inspect after one hour. If overheat occurs
+after takeoff, extend gear soon for at least 7 minutes.\nWhen in fuse plug melt zone, clear runway immediately. Unless required, do not set parking brake. Do not
+approach gear or attempt to taxi for one hour. Tire, wheel and brake replacement may be required. If
+overheat occurs after takeoff, extend gear soon for at least 12 minutes." />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

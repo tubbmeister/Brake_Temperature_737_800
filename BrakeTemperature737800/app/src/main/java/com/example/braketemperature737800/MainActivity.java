@@ -848,7 +848,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        // Warning.setText("why");
         // CalcUplift.setText((String.valueOf(FinalResult))+" ");
         //d= Double.parseDouble(Y4);
-        CoolingTime = FinalResult;
+        CoolingTime = FinalResult; //RTO is always the same as initial brake energy amount
 
         if (NoTR.isChecked()) {
           //  if (RadioRTO.isChecked()) {
@@ -862,6 +862,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR11.setText("Fuse Plug\nMelt Zone");
                     textViewR11.setTextSize(15);
                     textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
+                }else if (UseThis == 666.0) {
+                    textViewR11.setText(" No\n special\n procedure\n required");
+                    textViewR11.setTextSize(12);
+                    // textViewR11.setTextColor((Color.parseColor("#ff0000")));
 
                 }
                else  { // {UseThis= calculateCooling(CoolingTime);
@@ -883,6 +888,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR12.setTextSize(15);
                     textViewR12.setTextColor((Color.parseColor("#ff0000")));
 
+                }else if (UseThis == 666.0) {
+                    textViewR12.setText(" No\n special\n procedure\n required");
+                    textViewR12.setTextSize(12);
+                    // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
                 }
                 else    {//UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
@@ -901,6 +911,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR50.setText("Fuse Plug\nMelt Zone");
                     textViewR50.setTextSize(15);
                     textViewR50.setTextColor((Color.parseColor("#ff0000")));
+
+                }else if (UseThis == 666.0) {
+                    textViewR50.setText(" No\n special\n procedure\n required");
+                    textViewR50.setTextSize(12);
+                    // textViewR11.setTextColor((Color.parseColor("#ff0000")));
 
                 }
                 else    {//UseThis= calculateCooling(CoolingTime);
@@ -921,6 +936,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR51.setTextSize(15);
                     textViewR51.setTextColor((Color.parseColor("#ff0000")));
 
+                }else if (UseThis == 666.0) {
+                    textViewR51.setText(" No\n special\n procedure\n required");
+                    textViewR51.setTextSize(12);
+                    // textViewR11.setTextColor((Color.parseColor("#ff0000")));
+
                 }
                 else    {//UseThis= calculateCooling(CoolingTime);
                     int roundUp= (int) Math.ceil(UseThis);
@@ -938,6 +958,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR52.setText("Fuse Plug\nMelt Zone");
                     textViewR52.setTextSize(15);
                     textViewR52.setTextColor((Color.parseColor("#ff0000")));
+
+                }else if (UseThis == 666.0) {
+                    textViewR52.setText(" No\n special\n procedure\n required");
+                    textViewR52.setTextSize(12);
+                    // textViewR11.setTextColor((Color.parseColor("#ff0000")));
 
                 }
                 else    {//UseThis= calculateCooling(CoolingTime);
@@ -957,6 +982,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewR53.setText("Fuse Plug\nMelt Zone");
                     textViewR53.setTextSize(15);
                     textViewR53.setTextColor((Color.parseColor("#ff0000")));
+
+                }else if (UseThis == 666.0) {
+                    textViewR53.setText(" No\n special\n procedure\n required");
+                    textViewR53.setTextSize(12);
+                    // textViewR11.setTextColor((Color.parseColor("#ff0000")));
 
                 }
                 else    {//UseThis= calculateCooling(CoolingTime);
